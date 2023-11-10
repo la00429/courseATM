@@ -4,10 +4,7 @@ import co.edu.uptc.presenter.Presenter;
 
 public class Run {
 	public static void main(String[] args) {
-		Presenter presenter  =  new Presenter();
-		System.out.println("Hi");
-		
-				
+		Presenter presenter  =  new Presenter();			
 	}
 
 }
