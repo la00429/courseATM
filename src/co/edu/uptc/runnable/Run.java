@@ -5,7 +5,7 @@ import co.edu.uptc.presenter.Presenter;
 public class Run {
 	public static void main(String[] args) {
 		Presenter presenter  =  new Presenter();
-		loadData();
+		System.out.println("Hi");
 		
 				
 	}
