@@ -19,19 +19,27 @@ public class JPanelStartLeft extends JPanel {
 		this.setLayout(new GridBagLayout());
 		this.setBackground(new Color(248, 203, 46));
 		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.insets = new Insets(20, 30, 20, 0);
 		initComponents(gbc);
 		this.setVisible(true);
 	}
 
 	private void initComponents(GridBagConstraints gbc) {
-		firstLineUser();
+		firstLineUser(gbc);
+		secondLineUser(gbc);
 	}
 
-	private void firstLineUser() {
+	private void firstLineUser(GridBagConstraints gbc) {
+		ImageIcon imageIcon = new ImageIcon("img/user.png");
+		imgUserGrey = new JLabel(imageIcon);
+		gbc.fill = GridBagConstraints.REMAINDER;
+		this.add(imgUserGrey, gbc);
+	}
+
+	private void secondLineUser(GridBagConstraints gbc) {
 		ImageIcon imageIcon = new ImageIcon("img/logoUPTC.png");
 		imgUserGrey = new JLabel(imageIcon);
-		this.add(imgUserGrey);
+		this.add(imgUserGrey, gbc);
+
 	}
 
 }

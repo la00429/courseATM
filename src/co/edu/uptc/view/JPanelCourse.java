@@ -2,7 +2,7 @@ package co.edu.uptc.view;
 
 import javax.swing.JPanel;
 
-public class JPanelPrincipal extends JPanel {
+public class JPanelCourse extends JPanel {
 	
 
 }

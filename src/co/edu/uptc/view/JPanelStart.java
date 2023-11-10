@@ -39,7 +39,7 @@ public class JPanelStart extends JPanel {
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
 		gbc.weightx = 1.0;
-		gbc.fill = GridBagConstraints.VERTICAL;
+		gbc.fill = GridBagConstraints.BOTH;
 		this.add(imgUser, gbc);
 
 	}

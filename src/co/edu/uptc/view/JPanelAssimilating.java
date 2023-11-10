@@ -1,5 +1,5 @@
 package co.edu.uptc.view;
 
-public class JPanelAssimilating extends JPanelPrincipal {
+public class JPanelAssimilating extends JPanelCourse {
 
 }
