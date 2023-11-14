@@ -8,7 +8,9 @@ public class JPanelStartRight extends JPanel {
 	private JLabel title;
 	private JButtonUPTC button;
 	
-	
+	public JPanelStartRight() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 }

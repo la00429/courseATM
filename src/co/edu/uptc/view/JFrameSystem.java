@@ -1,5 +1,9 @@
 package co.edu.uptc.view;
 
-public class JFrameSystem {
+import javax.swing.JFrame;
+
+public class JFrameSystem extends JFrame{
+	private JPanelLogin loginUser;
+	private 
 
 }

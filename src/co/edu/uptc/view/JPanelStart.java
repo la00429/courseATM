@@ -1,21 +1,19 @@
 package co.edu.uptc.view;
 
-import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Insets;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class JPanelStart extends JPanel {
 	private JPanelStartLeft imgUser;
-	private JPanel infoPanel;
+	private JPanelStartRight infoPanel;
 	private JButtonUPTC button;
 
 	public JPanelStart(ActionListener listener) {
@@ -45,7 +43,7 @@ public class JPanelStart extends JPanel {
 	}
 
 	private void partRight(ActionListener listener, GridBagConstraints gbc) {
-		infoPanel = new JPanel();
+		infoPanel = new JPanelStartRight();
 		gbc.gridx = 1;
 		gbc.gridy = 0;
 		gbc.gridwidth = 1;

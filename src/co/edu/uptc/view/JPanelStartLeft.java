@@ -3,6 +3,7 @@ package co.edu.uptc.view;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 
 import javax.swing.ImageIcon;
@@ -30,8 +31,12 @@ public class JPanelStartLeft extends JPanel {
 
 	private void firstLineUser(GridBagConstraints gbc) {
 		ImageIcon imageIcon = new ImageIcon("img/user.png");
-		imgUserGrey = new JLabel(imageIcon);
-		gbc.fill = GridBagConstraints.REMAINDER;
+
+		Image originalImage = imageIcon.getImage();
+		Image resizedImage = originalImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		ImageIcon resizedIcon = new ImageIcon(resizedImage);
+		imgUserGrey = new JLabel(resizedIcon);
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		this.add(imgUserGrey, gbc);
 	}
 
