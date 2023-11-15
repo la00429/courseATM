@@ -1,8 +1,6 @@
 package co.edu.uptc.view;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,45 +10,32 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class JPanelStart extends JPanel {
+	private static final long serialVersionUID = 1L;
 	private JPanelStartLeft imgUser;
 	private JPanelStartRight infoPanel;
-	private JButtonUPTC button;
 
 	public JPanelStart(ActionListener listener) {
 		this.setSize(getMaximumSize());
-		this.setLayout(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		initComponents(listener, gbc);
+		this.setLayout(new GridLayout(1, 2));
+		initComponents(listener);
 		this.setVisible(true);
 
 	}
 
-	private void initComponents(ActionListener listener, GridBagConstraints gbc) {
-		partLeft(gbc);
-		partRight(listener, gbc);
+	private void initComponents(ActionListener listener) {
+		partLeft();
+		partRight(listener);
 	}
 
-	private void partLeft(GridBagConstraints gbc) {
+	private void partLeft() {
 		this.imgUser = new JPanelStartLeft();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.gridwidth = 1;
-		gbc.gridheight = 1;
-		gbc.weightx = 1.0;
-		gbc.fill = GridBagConstraints.BOTH;
-		this.add(imgUser, gbc);
+		this.add(imgUser);
 
 	}
 
-	private void partRight(ActionListener listener, GridBagConstraints gbc) {
+	private void partRight(ActionListener listener) {
 		infoPanel = new JPanelStartRight(listener);
-		gbc.gridx = 1;
-		gbc.gridy = 0;
-		gbc.gridwidth = 1;
-		gbc.gridheight = 1;
-		gbc.weightx = 0.5; // Ajusta el tamaño relativo del panel derecho
-		gbc.fill = GridBagConstraints.BOTH;
-		this.add(infoPanel, gbc);
+		this.add(infoPanel);
 	}
 
 	public static void main(String[] args) {
