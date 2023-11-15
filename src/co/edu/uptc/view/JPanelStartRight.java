@@ -21,12 +21,12 @@ public class JPanelStartRight extends JPanel {
 	}
 
 	private void initComponents(ActionListener listener) {
-
 		gbc = new GridBagConstraints();
 		title = new JLabel();
 		button = new JButtonUPTC(null);
 		button.addActionListener(listener);
-
+		this.add(title);
+		this.add(button);
 	}
 
 	public JLabel getTitle() {

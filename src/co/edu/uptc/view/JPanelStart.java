@@ -21,7 +21,6 @@ public class JPanelStart extends JPanel {
 		this.setLayout(new GridLayout(1, 2));
 		initComponents(listener, listenerMouse);
 		this.setVisible(true);
-
 	}
 
 	private void initComponents(ActionListener listener, MouseAdapter listenerMouse) {
@@ -38,6 +37,14 @@ public class JPanelStart extends JPanel {
 	private void partRight(ActionListener listener) {
 		infoPanel = new JPanelStartRight(listener);
 		this.add(infoPanel);
+	}
+	
+	public JPanelStartLeft getImgUser() {
+		return imgUser;
+	}
+
+	public JPanelStartRight getInfoPanel() {
+		return infoPanel;
 	}
 
 	public static void main(String[] args) {

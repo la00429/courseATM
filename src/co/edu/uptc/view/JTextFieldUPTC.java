@@ -1,5 +1,7 @@
 package co.edu.uptc.view;
 
-public class JTextFieldUPTC {
+import javax.swing.JTextField;
+
+public class JTextFieldUPTC extends JTextField{
 
 }
