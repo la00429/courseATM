@@ -1,12 +1,15 @@
 package co.edu.uptc.view;
 
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.MouseAdapter;
 import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.ImageIcon;
@@ -17,15 +20,16 @@ public class JPanelStartLeft extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JLabel imgUserGrey;
 	private JLabel imgUPTC;
+	private JLabel info;
 	public final int radio = 5;
 
-	public JPanelStartLeft() {
+	public JPanelStartLeft(MouseAdapter listenerMouse) {
 		this.setSize(getMaximumSize());
 		this.setLayout(new GridBagLayout());
 		this.setBackground(new Color(248, 203, 46));
 		GridBagConstraints gbc = new GridBagConstraints();
 		borderPanel();
-		initComponents(gbc);
+		initComponents(listenerMouse, gbc);
 		this.setVisible(true);
 	}
 
@@ -46,9 +50,9 @@ public class JPanelStartLeft extends JPanel {
 		g2d.dispose();
 	}
 
-	private void initComponents(GridBagConstraints gbc) {
+	private void initComponents(MouseAdapter listenerMouse, GridBagConstraints gbc) {
 		firstLineUser(gbc);
-		secondLineUser(gbc);
+		secondLineUser(listenerMouse, gbc);
 	}
 
 	/**
@@ -61,33 +65,45 @@ public class JPanelStartLeft extends JPanel {
 		Image resizedImage = originalImage.getScaledInstance(469, 465, Image.SCALE_SMOOTH);
 		ImageIcon resizedIcon = new ImageIcon(resizedImage);
 		imgUserGrey = new JLabel(resizedIcon);
+		gbc.insets = new Insets(50, 0, 0, 0);
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
-		gbc.anchor = GridBagConstraints.NORTH;
-		gbc.fill = GridBagConstraints.BOTH;
+		gbc.anchor = GridBagConstraints.PAGE_START;
+//		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 
 		this.add(imgUserGrey, gbc);
 	}
 
-	private void secondLineUser(GridBagConstraints gbc) {
-	    ImageIcon imageIcon = new ImageIcon("img/logoUPTC.png");
-	    Image originalImage = imageIcon.getImage();
-	    Image resizedImage = originalImage.getScaledInstance(308, 132, Image.SCALE_SMOOTH);
-	    ImageIcon resizedIcon = new ImageIcon(resizedImage);
-	    JLabel imgUserGrey = new JLabel(resizedIcon);
+	private void secondLineUser(MouseAdapter listenerMouse, GridBagConstraints gbc) {
+		ImageIcon imageIcon = new ImageIcon("img/logoUPTC.png");
+		Image originalImage = imageIcon.getImage();
+		Image resizedImage = originalImage.getScaledInstance(308, 132, Image.SCALE_SMOOTH);
+		ImageIcon resizedIcon = new ImageIcon(resizedImage);
+		imgUserGrey = new JLabel(resizedIcon);
 
-	    // Configuración de GridBagConstraints para ubicar en la esquina inferior izquierda
-	    gbc.anchor = GridBagConstraints.SOUTHWEST; // Esquina inferior izquierda
-	    gbc.fill = GridBagConstraints.NONE; // Sin relleno
-	    gbc.weightx = 0.0; // No expandir en el eje X
-	    gbc.weighty = 0.0; // No expandir en el eje Y
-	    gbc.gridx = 0; // Posición en la columna cero
-	    gbc.gridy = 1; // Posición en la fila uno
-	    gbc.insets = new Insets(0, 5, 20, 5); // Relleno para separación
+		// Configuración de GridBagConstraints para ubicar en la esquina inferior
+		// izquierda
+		gbc.anchor = GridBagConstraints.SOUTHWEST; // Esquina inferior izquierda
+		gbc.fill = GridBagConstraints.NONE; // Sin relleno
+		gbc.weightx = 0.0; // No expandir en el eje X
+		gbc.weighty = 0.0; // No expandir en el eje Y
+		gbc.gridx = 0; // Posición en la columna cero
+		gbc.gridy = 1; // Posición en la fila uno
+		gbc.insets = new Insets(0, 5, 10, 5); // Relleno para separación
 
-	    this.add(imgUserGrey, gbc);
+		this.add(imgUserGrey, gbc);
+
+		info = new JLabel("Sobre nosotros");
+		this.info.setFont(new Font("Arial", Font.BOLD, 20));
+		this.info.addMouseListener(listenerMouse);
+		this.info.setForeground(new Color(113, 117, 117));
+		this.info.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		gbc.anchor = GridBagConstraints.SOUTHEAST;
+//		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.insets = new Insets(30, 30, 45, 50);
+		this.add(info, gbc);
 	}
-
 
 }
