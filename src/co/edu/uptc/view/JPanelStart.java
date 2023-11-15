@@ -43,7 +43,7 @@ public class JPanelStart extends JPanel {
 	}
 
 	private void partRight(ActionListener listener, GridBagConstraints gbc) {
-		infoPanel = new JPanelStartRight();
+		infoPanel = new JPanelStartRight(listener);
 		gbc.gridx = 1;
 		gbc.gridy = 0;
 		gbc.gridwidth = 1;
