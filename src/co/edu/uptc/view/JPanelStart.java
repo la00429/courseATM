@@ -1,6 +1,8 @@
 package co.edu.uptc.view;
 
+
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,7 +18,7 @@ public class JPanelStart extends JPanel {
 
 	public JPanelStart(ActionListener listener) {
 		this.setSize(getMaximumSize());
-		this.setLayout(new GridLayout(1, 2));
+		this.setLayout(new GridLayout(1,2));
 		initComponents(listener);
 		this.setVisible(true);
 
@@ -42,7 +44,7 @@ public class JPanelStart extends JPanel {
 		SwingUtilities.invokeLater(() -> {
 			JFrame frame = new JFrame("Ejemplo de JPanelStart");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.setSize(1800, 1600);
+			frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
 
 			JPanelStart panelStart = new JPanelStart(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
