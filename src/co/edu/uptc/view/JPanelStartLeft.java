@@ -9,6 +9,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.geom.RoundRectangle2D;
 
@@ -20,16 +21,16 @@ public class JPanelStartLeft extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JLabel imgUserGrey;
 	private JLabel imgUPTC;
-	private JLabelUPTC info;
+	private JButtonTraspUPTC info;
 	public final int radio = 5;
 
-	public JPanelStartLeft(MouseAdapter listenerMouse) {
+	public JPanelStartLeft(ActionListener listener) {
 		this.setSize(getMaximumSize());
 		this.setLayout(new GridBagLayout());
 		this.setBackground(new Color(248, 203, 46));
 		GridBagConstraints gbc = new GridBagConstraints();
 		borderPanel();
-		initComponents(listenerMouse, gbc);
+		initComponents(listener, gbc);
 		this.setVisible(true);
 	}
 
@@ -50,7 +51,7 @@ public class JPanelStartLeft extends JPanel {
 		g2d.dispose();
 	}
 
-	private void initComponents(MouseAdapter listenerMouse, GridBagConstraints gbc) {
+	private void initComponents(ActionListener listenerMouse, GridBagConstraints gbc) {
 		firstLineUser(gbc);
 		secondLineUser(listenerMouse, gbc);
 	}
@@ -75,7 +76,7 @@ public class JPanelStartLeft extends JPanel {
 		this.add(imgUserGrey, gbc);
 	}
 
-	private void secondLineUser(MouseAdapter listenerMouse, GridBagConstraints gbc) {
+	private void secondLineUser(ActionListener listener, GridBagConstraints gbc) {
 		ImageIcon imageIcon = new ImageIcon("img/logoUPTC.png");
 		Image originalImage = imageIcon.getImage();
 		Image resizedImage = originalImage.getScaledInstance(308, 132, Image.SCALE_SMOOTH);
@@ -94,8 +95,9 @@ public class JPanelStartLeft extends JPanel {
 
 		this.add(imgUserGrey, gbc);
 
-		info = new JLabelUPTC("Sobre nosotros");
-		this.info.addMouseListener(listenerMouse);
+		info = new JButtonTraspUPTC("Sobre nosotros");
+		this.info.setActionCommand("Us");
+		this.info.addActionListener(listener);
 //		this.info.
 		gbc.anchor = GridBagConstraints.SOUTHEAST;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;

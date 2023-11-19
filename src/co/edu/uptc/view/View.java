@@ -19,5 +19,4 @@ public class View implements Contracts.IView {
 		// TODO Auto-generated method stub
 
 	}
-
 }

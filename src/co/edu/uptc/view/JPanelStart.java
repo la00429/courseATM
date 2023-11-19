@@ -26,18 +26,18 @@ public class JPanelStart extends JPanel {
 	}
 
 	private void initComponents(ActionListener listener, MouseAdapter listenerMouse) {
-		partLeft(listenerMouse);
+		partLeft(listener);
 		partRight(listener);
 	}
 
-	private void partLeft(MouseAdapter listenerMouse) {
-		this.imgUser = new JPanelStartLeft(listenerMouse);
+	private void partLeft(ActionListener listener) {
+		this.imgUser = new JPanelStartLeft(listener);
 		this.add(imgUser);
 
 	}
 
 	private void partRight(ActionListener listener) {
-		infoPanel = new JPanelStartRight(listener);
+		infoPanel = new JPanelStartRight();
 		this.add(infoPanel);
 	}
 

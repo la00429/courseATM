@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -13,17 +14,23 @@ import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.BorderFactory;
-import javax.swing.JFrame;
 import javax.swing.JPasswordField;
 import javax.swing.JToggleButton;
 
 public class JPasswordUPTC extends JPasswordField {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private   JToggleButton showHideButton;
+
 	public JPasswordUPTC() {
-        setOpaque(false);
+		setOpaque(false);
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         setForeground(Color.BLACK);
-        setPreferredSize(new Dimension(354, 30));
+        setPreferredSize(new Dimension(420, 50));
+        setFont(new Font("Arial", Font.PLAIN, 20));
     }
 
     @Override
@@ -39,7 +46,7 @@ public class JPasswordUPTC extends JPasswordField {
 
         // Dibujar el fondo redondeado con transparencia
         g2d.setColor(getBackground());
-        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.1f));
+        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
         g2d.fill(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, 15, 15));
 
         // Restaurar la configuración original del gráfico

@@ -2,30 +2,31 @@ package co.edu.uptc.view;
 
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
-public class JButtonUPTC extends JButton {
+public class JButtonTraspUPTC extends JButton {
+
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
-	public JButtonUPTC(String text) {
+	public JButtonTraspUPTC(String text) {
 		super(text);
 		setFocusPainted(false);
 		setContentAreaFilled(false);
-		setBackground(new Color(248, 203, 46));
-		setForeground(Color.GRAY);
+		setForeground(new Color(90, 90, 90));
 		setFocusPainted(false);
 		setFont(new Font("Arial", Font.BOLD, 20));
 		setBorderPainted(false);
-		setBorder(new EmptyBorder(10, 10, 10, 10));
 		setCursor(new Cursor(Cursor.HAND_CURSOR));
-		 setPreferredSize(new Dimension(275, 72));
 	}
 
 	@Override
@@ -35,9 +36,6 @@ public class JButtonUPTC extends JButton {
 		} else {
 			g.setColor(getBackground());
 		}
-		((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		g.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
 		super.paintComponent(g);
 	}
-	
 }

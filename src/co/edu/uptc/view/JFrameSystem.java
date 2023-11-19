@@ -10,12 +10,14 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JFrame;
 
 public class JFrameSystem extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanelLogin loginUser;
 	private JPanelCreateUser createUser;
 
 	public JFrameSystem(ActionListener listener, MouseAdapter listenerMouse) {
-//		this.setLayout(new GridLayout());
-//		GridBagConstraints gbc = new GridBagConstraints();
 		this.setTitle("Aprendamos Juntos");
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
 				Toolkit.getDefaultToolkit().getScreenSize().height - 18);
@@ -26,8 +28,10 @@ public class JFrameSystem extends JFrame {
 	}
 
 	private void startLogin(ActionListener listener, MouseAdapter listenerMouse) {
-		loginUser = new JPanelLogin(listener, listenerMouse);
-		this.add(loginUser);
+//		loginUser = new JPanelLogin(listener, listenerMouse);
+//		this.add(loginUser);
+		createUser = new JPanelCreateUser(listener, listenerMouse);
+		this.add(createUser);
 	}
 
 }

@@ -16,8 +16,8 @@ public class JPanelLogin extends JPanelStart {
 	private JTextFieldUPTC userInput;
 	private JLabel password;
 	private JPasswordUPTC passwordInput;
-	private JLabelUPTC forgetPassword;
-	private JLabelUPTC createCount;
+	private JButtonTraspUPTC forgetPassword;
+	private JButtonTraspUPTC createCount;
 
 	public JPanelLogin(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
@@ -33,8 +33,8 @@ public class JPanelLogin extends JPanelStart {
 		fourLine(gbc);
 		fiveLine(gbc);
 		sixLine(listener, gbc);
-		sevenLine(listenerMouse, gbc);
-		eightLine(listenerMouse, gbc);
+		sevenLine(listener, gbc);
+		eightLine(listener, gbc);
 	}
 
 	private void firstLine(GridBagConstraints gbc) {
@@ -90,19 +90,31 @@ public class JPanelLogin extends JPanelStart {
 		getInfoPanel().add(getInfoPanel().getButton(), gbc);
 	}
 
-	private void sevenLine(MouseAdapter listenerMouse, GridBagConstraints gbc) {
-		this.forgetPassword = new JLabelUPTC("Olvidé mi contraseña");
-		gbc.insets = new Insets(5, 30, 0, 0);
+	private void sevenLine(ActionListener listener, GridBagConstraints gbc) {
+		this.forgetPassword = new JButtonTraspUPTC("Olvidé mi contraseña");
+		this.forgetPassword.setActionCommand("Forgot");
+		this.forgetPassword.addActionListener(listener);
+		gbc.insets = new Insets(0, 30, 0, 0);
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		getInfoPanel().add(forgetPassword, gbc);
 
 	}
 
-	private void eightLine(MouseAdapter listenerMouse, GridBagConstraints gbc) {
-		this.createCount = new JLabelUPTC("Crear una cuenta");
+	private void eightLine(ActionListener listener, GridBagConstraints gbc) {
+		this.createCount = new JButtonTraspUPTC("Crear una cuenta");
+		this.createCount.setActionCommand("Create");
+		this.createCount.addActionListener(listener);
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		getInfoPanel().add(createCount, gbc);
+	}
 
+	public String getUserInput() {
+		return userInput.getText();
+	}
+
+	public String getPasswordInput() {
+		char[] passwordChars = passwordInput.getPassword();
+		return new String(passwordChars);
 	}
 
 }
