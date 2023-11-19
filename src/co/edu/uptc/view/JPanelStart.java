@@ -1,5 +1,6 @@
 package co.edu.uptc.view;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -18,6 +19,7 @@ public class JPanelStart extends JPanel {
 
 	public JPanelStart(ActionListener listener, MouseAdapter listenerMouse) {
 		this.setSize(getMaximumSize());
+		this.setBackground(new Color(255, 255, 255));
 		this.setLayout(new GridLayout(1, 2));
 		initComponents(listener, listenerMouse);
 		this.setVisible(true);

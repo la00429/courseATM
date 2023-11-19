@@ -1,5 +1,6 @@
 package co.edu.uptc.view;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -18,6 +19,7 @@ public class JFrameSystem extends JFrame {
 		this.setTitle("Aprendamos Juntos");
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
 				Toolkit.getDefaultToolkit().getScreenSize().height - 18);
+		this.setBackground(new Color(255, 255, 255));
 		startLogin(listener, listenerMouse);
 		this.setVisible(true);
 	}

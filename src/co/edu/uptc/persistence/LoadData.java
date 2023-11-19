@@ -1,5 +1,5 @@
 package co.edu.uptc.persistence;
 
-public class LoadData {
+public class LoadData{
 
 }

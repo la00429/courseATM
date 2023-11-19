@@ -1,5 +1,6 @@
 package co.edu.uptc.view;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
@@ -14,8 +15,10 @@ public class JPanelStartRight extends JPanel {
 	private JButtonUPTC button;
 
 	public JPanelStartRight(ActionListener listener) {
+	
 		this.setSize(getMaximumSize());
 		initComponents(listener, gbc);
+		this.setBackground(new Color(255, 255, 255));
 		this.setVisible(true);
 	}
 
@@ -28,7 +31,7 @@ public class JPanelStartRight extends JPanel {
 	public JLabel getTitle() {
 		return title;
 	}
-
+	
 	public JButtonUPTC getButton() {
 		return button;
 	}

@@ -1,6 +1,7 @@
 package co.edu.uptc.view;
 
 import java.awt.AlphaComposite;
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -18,7 +19,7 @@ public class JTextFieldUPTC extends JTextField {
 
 	public JTextFieldUPTC() {
 		setOpaque(false);
-		setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
+		setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		setForeground(Color.BLACK);
 		setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 		setPreferredSize(new Dimension(150, 30));
@@ -29,7 +30,8 @@ public class JTextFieldUPTC extends JTextField {
 		Graphics2D g2d = (Graphics2D) g.create();
 		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.1f)); 
 		g2d.setColor(getBackground());
-		g2d.fill(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, 15, 15));
+		g2d.fill(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, 40, 40));
+		g2d.setStroke(new BasicStroke(0));
 		super.paintComponent(g);
 		g2d.dispose();
 	}
