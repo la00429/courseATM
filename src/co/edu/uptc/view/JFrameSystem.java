@@ -20,6 +20,7 @@ public class JFrameSystem extends JFrame {
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
 				Toolkit.getDefaultToolkit().getScreenSize().height - 18);
 		this.setBackground(new Color(255, 255, 255));
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		startLogin(listener, listenerMouse);
 		this.setVisible(true);
 	}
