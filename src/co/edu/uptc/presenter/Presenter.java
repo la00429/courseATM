@@ -3,6 +3,7 @@ package co.edu.uptc.presenter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import co.edu.uptc.model.SystemPrincipal;
 import co.edu.uptc.view.View;
@@ -30,6 +31,13 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 	public void showData() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+//		String source = e.getSource();
+		super.mouseClicked(e);
+	
 	}
 
 }

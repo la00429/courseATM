@@ -15,18 +15,14 @@ public class JPanelStartRight extends JPanel {
 
 	public JPanelStartRight(ActionListener listener) {
 		this.setSize(getMaximumSize());
-		this.setLayout(new GridBagLayout());
-		initComponents(listener);
+		initComponents(listener, gbc);
 		this.setVisible(true);
 	}
 
-	private void initComponents(ActionListener listener) {
-		gbc = new GridBagConstraints();
+	private void initComponents(ActionListener listener, GridBagConstraints gbc) {
 		title = new JLabel();
 		button = new JButtonUPTC(null);
 		button.addActionListener(listener);
-		this.add(title);
-		this.add(button);
 	}
 
 	public JLabel getTitle() {

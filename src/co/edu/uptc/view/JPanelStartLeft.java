@@ -20,7 +20,7 @@ public class JPanelStartLeft extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JLabel imgUserGrey;
 	private JLabel imgUPTC;
-	private JLabel info;
+	private JLabelUPTC info;
 	public final int radio = 5;
 
 	public JPanelStartLeft(MouseAdapter listenerMouse) {
@@ -94,13 +94,10 @@ public class JPanelStartLeft extends JPanel {
 
 		this.add(imgUserGrey, gbc);
 
-		info = new JLabel("Sobre nosotros");
-		this.info.setFont(new Font("Arial", Font.BOLD, 20));
+		info = new JLabelUPTC("Sobre nosotros");
 		this.info.addMouseListener(listenerMouse);
-		this.info.setForeground(new Color(113, 117, 117));
-		this.info.setCursor(new Cursor(Cursor.HAND_CURSOR));
+//		this.info.
 		gbc.anchor = GridBagConstraints.SOUTHEAST;
-//		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.insets = new Insets(30, 30, 45, 50);
 		this.add(info, gbc);

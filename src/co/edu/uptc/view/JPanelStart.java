@@ -38,31 +38,13 @@ public class JPanelStart extends JPanel {
 		infoPanel = new JPanelStartRight(listener);
 		this.add(infoPanel);
 	}
-	
+
 	public JPanelStartLeft getImgUser() {
 		return imgUser;
 	}
 
 	public JPanelStartRight getInfoPanel() {
 		return infoPanel;
-	}
-
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(() -> {
-			JFrame frame = new JFrame("Ejemplo de JPanelStart");
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
-					Toolkit.getDefaultToolkit().getScreenSize().height - 18);
-
-			JPanelStart panelStart = new JPanelStart(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					// Manejar eventos del botón u otros componentes aquí
-				}
-			}, null);
-
-			frame.add(panelStart);
-			frame.setVisible(true);
-		});
 	}
 
 }

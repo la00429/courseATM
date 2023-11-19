@@ -1,6 +1,7 @@
 package co.edu.uptc.view;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -22,6 +23,7 @@ public class JButtonUPTC extends JButton {
 		setFont(new Font("Arial", Font.BOLD, 16));
 		setBorderPainted(false);
 		setBorder(new EmptyBorder(10, 10, 10, 10));
+		setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 
 	@Override
