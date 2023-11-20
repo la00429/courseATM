@@ -21,6 +21,7 @@ public class JPanelLogin extends JPanelStart {
 
 	public JPanelLogin(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
+		this.setVisible(false);
 		initComponents2(listener, listenerMouse);
 	}
 

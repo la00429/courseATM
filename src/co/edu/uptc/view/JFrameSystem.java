@@ -29,12 +29,12 @@ public class JFrameSystem extends JFrame {
 	}
 
 	private void startLogin(ActionListener listener, MouseAdapter listenerMouse) {
-//		createUser = new JPanelCreateUser(listener, listenerMouse);
-//		this.add(createUser);
+		createUser = new JPanelCreateUser(listener, listenerMouse);
+		this.add(createUser);
 //		loginUser = new JPanelLogin(listener, listenerMouse);
 //		this.add(loginUser);
-		formStyleLearning = new JPanelForm(listener, listenerMouse);
-		this.add(formStyleLearning);
+//		formStyleLearning = new JPanelForm(listener, listenerMouse);
+//		this.add(formStyleLearning);
 
 	}
 

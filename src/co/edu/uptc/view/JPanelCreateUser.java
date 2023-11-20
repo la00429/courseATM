@@ -12,10 +12,13 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
+/**
+ * Panel para crear un nuevo usuario con campos como nombre, código, sexo,
+ * contraseña, etc. Extiende JPanelStart para agregar funcionalidades
+ * adicionales y mostrar información.
+ */
 public class JPanelCreateUser extends JPanelStart {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private JLabel name;
 	private JTextFieldUPTC nameInput;
@@ -26,6 +29,12 @@ public class JPanelCreateUser extends JPanelStart {
 	private JLabel password;
 	private JPasswordUPTC passwordInput;
 
+	/**
+	 * Constructor de JPanelCreateUser.
+	 *
+	 * @param listener      ActionListener para manejar eventos del botón.
+	 * @param listenerMouse MouseAdapter para manejar eventos del mouse.
+	 */
 	public JPanelCreateUser(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
 		this.setVisible(false);
@@ -102,7 +111,6 @@ public class JPanelCreateUser extends JPanelStart {
 
 	private void sevenLine(GridBagConstraints gbc) {
 		this.genderInput = new JComboBoxUPTC();
-		this.genderInput.addItem("hoi");
 		gbc.insets = new Insets(0, 30, 5, 0);
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		getInfoPanel().add(genderInput, gbc);
@@ -134,7 +142,7 @@ public class JPanelCreateUser extends JPanelStart {
 		getInfoPanel().add(getInfoPanel().getButton(), gbc);
 	}
 
-	public void loadComboBox(ArrayList<Object> items) {
+	public void loadComboBoxGender(ArrayList<Object> items) {
 		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();
 		model.addElement("Select level");
 		for (Object object : items) {
@@ -146,6 +154,14 @@ public class JPanelCreateUser extends JPanelStart {
 
 	public String getName() {
 		return nameInput.getText();
+	}
+	
+	public String getCode() {
+		return codeInput.getText();
+	}
+	
+	public String getSelectedGender() {
+	    return (String) genderInput.getSelectedItem();
 	}
 
 	public String getPasswordInput() {
