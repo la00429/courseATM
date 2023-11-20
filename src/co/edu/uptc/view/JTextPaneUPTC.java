@@ -25,7 +25,7 @@ public class JTextPaneUPTC extends JTextPane {
         setOpaque(false); // Establecer la opacidad en falso para que el fondo sea transparente
         setEditable(false);
         setContentType("text/html");
-        setPreferredSize(new Dimension(930, 560));
+        setPreferredSize(new Dimension(930, 380));
     }
 
     @Override

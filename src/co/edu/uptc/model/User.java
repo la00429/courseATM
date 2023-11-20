@@ -7,10 +7,11 @@ public class User implements Serializable {
 	private String password;
 	private String styleLearning;
 
-	public User(String name, String password) {
+	public User(String name, String password, String stylelearning) {
 		super();
 		this.name = name;
 		this.password = password;
+		this.styleLearning=stylelearning;
 	}
 
 	public String getName() {
