@@ -28,13 +28,14 @@ public class JPanelCreateUser extends JPanelStart {
 
 	public JPanelCreateUser(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
+		this.setVisible(false);
 		initComponents2(listener, listenerMouse);
 	}
 
 	private void initComponents2(ActionListener listener, MouseAdapter listenerMouse) {
 		getInfoPanel().setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-		firstLine(listenerMouse,gbc);
+		firstLine(gbc);
 		secondLine(gbc);
 		thirdLine(gbc);
 		fourLine(gbc);
@@ -46,10 +47,8 @@ public class JPanelCreateUser extends JPanelStart {
 		tenLine(listener, gbc);
 	}
 
-	private void firstLine(MouseAdapter listenerMouse, GridBagConstraints gbc) {
+	private void firstLine(GridBagConstraints gbc) {
 		getInfoPanel().getTitle().setText("Crear Usuario");
-		getInfoPanel().getTitle().addMouseListener(listenerMouse);
-		getInfoPanel().getTitle().setName("TITLE");
 		getInfoPanel().getTitle().setFont(new Font("Arial", Font.BOLD, 64));
 		gbc.anchor = GridBagConstraints.NORTH;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -134,7 +133,7 @@ public class JPanelCreateUser extends JPanelStart {
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		getInfoPanel().add(getInfoPanel().getButton(), gbc);
 	}
-	
+
 	public void loadComboBox(ArrayList<Object> items) {
 		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();
 		model.addElement("Select level");
@@ -153,6 +152,5 @@ public class JPanelCreateUser extends JPanelStart {
 		char[] passwordChars = passwordInput.getPassword();
 		return new String(passwordChars);
 	}
-	
 
 }

@@ -2,6 +2,7 @@ package co.edu.uptc.view;
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -61,11 +62,15 @@ public class JPanelStartLeft extends JPanel {
 	 * @param gbc
 	 */
 	private void firstLineUser(GridBagConstraints gbc) {
-		ImageIcon imageIcon = new ImageIcon("img/user.png");
-		Image originalImage = imageIcon.getImage();
-		Image resizedImage = originalImage.getScaledInstance(469, 465, Image.SCALE_SMOOTH);
-		ImageIcon resizedIcon = new ImageIcon(resizedImage);
-		imgUserGrey = new JLabel(resizedIcon);
+		imgUserGrey = new JLabel();
+		imgUserGrey.setSize(469, 465);
+		ImageIcon originalImageIcon = new ImageIcon("img/user.png");
+		Image originalImage = originalImageIcon.getImage();
+		Image resizedImage = originalImage.getScaledInstance((int) (imgUserGrey.getWidth() * 0.9),
+				(int) (imgUserGrey.getHeight() * 0.9), Image.SCALE_SMOOTH);
+		ImageIcon scaledImageIcon = new ImageIcon(resizedImage);
+		imgUserGrey.setIcon(scaledImageIcon);
+
 		gbc.insets = new Insets(50, 0, 0, 0);
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.anchor = GridBagConstraints.PAGE_START;
@@ -76,12 +81,33 @@ public class JPanelStartLeft extends JPanel {
 		this.add(imgUserGrey, gbc);
 	}
 
+	public void firstLineUser(int width, int height) {
+		GridBagConstraints gbc = new GridBagConstraints();
+		imgUserGrey = new JLabel();
+		imgUserGrey.setSize(width, height);
+		ImageIcon originalImageIcon = new ImageIcon("img/user.png");
+		Image originalImage = originalImageIcon.getImage();
+		Image resizedImage = originalImage.getScaledInstance((int) (imgUserGrey.getWidth() * 0.9),
+				(int) (imgUserGrey.getHeight() * 0.9), Image.SCALE_SMOOTH);
+		ImageIcon scaledImageIcon = new ImageIcon(resizedImage);
+		imgUserGrey.setIcon(scaledImageIcon);
+
+		gbc.insets = new Insets(30, 0, 5, 0);
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.anchor = GridBagConstraints.PAGE_START;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+
+		this.add(imgUserGrey, gbc);
+	}
+
 	private void secondLineUser(ActionListener listener, GridBagConstraints gbc) {
+		imgUPTC = new JLabel();
 		ImageIcon imageIcon = new ImageIcon("img/logoUPTC.png");
 		Image originalImage = imageIcon.getImage();
 		Image resizedImage = originalImage.getScaledInstance(308, 132, Image.SCALE_SMOOTH);
 		ImageIcon resizedIcon = new ImageIcon(resizedImage);
-		imgUserGrey = new JLabel(resizedIcon);
+		imgUPTC.setIcon(resizedIcon);
 
 		// Configuración de GridBagConstraints para ubicar en la esquina inferior
 		// izquierda
@@ -92,17 +118,27 @@ public class JPanelStartLeft extends JPanel {
 		gbc.gridx = 0; // Posición en la columna cero
 		gbc.gridy = 1; // Posición en la fila uno
 		gbc.insets = new Insets(0, 5, 10, 5); // Relleno para separación
-
-		this.add(imgUserGrey, gbc);
+		this.add(imgUPTC, gbc);
 
 		info = new JButtonTraspUPTC("Sobre nosotros");
 		this.info.setActionCommand("Us");
 		this.info.addActionListener(listener);
-//		this.info.
 		gbc.anchor = GridBagConstraints.SOUTHEAST;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.insets = new Insets(30, 30, 45, 50);
 		this.add(info, gbc);
+	}
+
+	public JLabel getImgUPTC() {
+		return imgUPTC;
+	}
+
+	public JLabel getImgUserGrey() {
+		return imgUserGrey;
+	}
+
+	public JButtonTraspUPTC getInfo() {
+		return info;
 	}
 
 }

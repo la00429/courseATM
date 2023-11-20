@@ -1,7 +1,10 @@
 package co.edu.uptc.view;
 
 import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,40 +16,40 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class JPanelStart extends JPanel {
-	private static final long serialVersionUID = 1L;
-	private JPanelStartLeft imgUser;
-	private JPanelStartRight infoPanel;
+    private static final long serialVersionUID = 1L;
+    private JPanelStartLeft imgUser;
+    private JPanelStartRight infoPanel;
 
-	public JPanelStart(ActionListener listener, MouseAdapter listenerMouse) {
-		this.setSize(getMaximumSize());
-		this.setBackground(new Color(255, 255, 255));
-		this.setLayout(new GridLayout(1, 2));
-		initComponents(listener, listenerMouse);
-		this.setVisible(true);
-	}
+    public JPanelStart(ActionListener listener, MouseAdapter listenerMouse) {
+        this.setBackground(new Color(255, 255, 255));
+        this.setLayout(new GridBagLayout());
+        initComponents(listener, listenerMouse);
+        this.setVisible(true);
+    }
 
-	private void initComponents(ActionListener listener, MouseAdapter listenerMouse) {
-		partLeft(listener);
-		partRight(listener);
-	}
+    private void initComponents(ActionListener listener, MouseAdapter listenerMouse) {
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 0.5; // Cada panel ocupará la mitad del ancho
+        gbc.weighty = 1.0; // Para llenar verticalmente
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(5, 5, 5, 5);
 
-	private void partLeft(ActionListener listener) {
-		this.imgUser = new JPanelStartLeft(listener);
-		this.add(imgUser);
+        imgUser = new JPanelStartLeft(listener);
+        add(imgUser, gbc);
 
-	}
+        gbc.gridx = 1;
+        infoPanel = new JPanelStartRight();
+        add(infoPanel, gbc);
+    }
 
-	private void partRight(ActionListener listener) {
-		infoPanel = new JPanelStartRight();
-		this.add(infoPanel);
-	}
+    public JPanelStartLeft getImgUser() {
+        return imgUser;
+    }
 
-	public JPanelStartLeft getImgUser() {
-		return imgUser;
-	}
-
-	public JPanelStartRight getInfoPanel() {
-		return infoPanel;
-	}
+    public JPanelStartRight getInfoPanel() {
+        return infoPanel;
+    }
 
 }

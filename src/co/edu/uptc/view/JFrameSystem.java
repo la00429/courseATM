@@ -16,6 +16,7 @@ public class JFrameSystem extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanelLogin loginUser;
 	private JPanelCreateUser createUser;
+	private JPanelForm formStyleLearning;
 
 	public JFrameSystem(ActionListener listener, MouseAdapter listenerMouse) {
 		this.setTitle("Aprendamos Juntos");
@@ -28,10 +29,13 @@ public class JFrameSystem extends JFrame {
 	}
 
 	private void startLogin(ActionListener listener, MouseAdapter listenerMouse) {
+//		createUser = new JPanelCreateUser(listener, listenerMouse);
+//		this.add(createUser);
 //		loginUser = new JPanelLogin(listener, listenerMouse);
 //		this.add(loginUser);
-		createUser = new JPanelCreateUser(listener, listenerMouse);
-		this.add(createUser);
+		formStyleLearning = new JPanelForm(listener, listenerMouse);
+		this.add(formStyleLearning);
+
 	}
 
 }
