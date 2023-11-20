@@ -17,6 +17,7 @@ public class JFrameSystem extends JFrame {
 	private JPanelLogin loginUser;
 	private JPanelCreateUser createUser;
 	private JPanelForm formStyleLearning;
+	private JChangePasswaord changePassword;
 
 	public JFrameSystem(ActionListener listener, MouseAdapter listenerMouse) {
 		this.setTitle("Aprendamos Juntos");
@@ -33,9 +34,10 @@ public class JFrameSystem extends JFrame {
 //		this.add(createUser);
 //		loginUser = new JPanelLogin(listener, listenerMouse);
 //		this.add(loginUser);
-		formStyleLearning = new JPanelForm(listener, listenerMouse);
-		formStyleLearning.setVisible(true);
-		this.add(formStyleLearning);
+//		formStyleLearning = new JPanelForm(listener, listenerMouse);
+//		this.add(formStyleLearning);
+		changePassword = new JChangePasswaord(listener, listenerMouse);
+		this.add(changePassword);
 
 	}
 
