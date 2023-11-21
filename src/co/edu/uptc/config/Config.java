@@ -27,11 +27,16 @@ public class Config {
 				fields[i].setAccessible(true);
 				fields[i].set(message, messagesAll[i]);
 			}
-		} catch (IllegalArgumentException e) {
+		} catch (FileNotFoundException e) {
+			e.getMessage();
+		}  catch (IllegalArgumentException e) {
 			e.getMessage();
 		} catch (IllegalAccessException e) {
 			e.getMessage();
 		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -42,26 +47,17 @@ public class Config {
 
 	}
 
-	private String[] loadProperties() {
-		String[] messagesAll = new String[0];
-		try {
-			Properties file = new Properties();
-			file.load(new FileReader("resources/messages.properties")); /// Cargar lista de atributos
-			// Ordenar file
-			ArrayList<String> fileOrder = keysOrder(file);
-			// añadirle a cada atributo del objeto message un dato del archivo que ya se
-			// encuentra en fileOrder.
-			messagesAll = new String[fileOrder.size()];
-			for (int i = 0; i < fileOrder.size(); i++) {
-				messagesAll[i] = file.getProperty((String) fileOrder.get(i));
-			}
-		} catch (FileNotFoundException e) {
-			e.getMessage();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	private String[] loadProperties() throws FileNotFoundException, IOException {
+		Properties file = new Properties();
+		file.load(new FileReader("resources/messages.properties")); /// Cargar lista de atributos
+// Ordenar file
+		ArrayList<String> fileOrder = keysOrder(file);
+// añadirle a cada atributo del objeto message un dato del archivo que ya se
+// encuentra en fileOrder.
+		String[] messagesAll = new String[fileOrder.size()];
+		for (int i = 0; i < fileOrder.size(); i++) {
+			messagesAll[i] = file.getProperty((String) fileOrder.get(i));
 		}
-
 		return messagesAll;
 	}
 

@@ -3,20 +3,29 @@ package co.edu.uptc.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.RenderingHints;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
+import javax.swing.SwingUtilities;
 
 public class JPanelCourse extends JPanelStart {
 	/**
@@ -25,10 +34,9 @@ public class JPanelCourse extends JPanelStart {
 	private static final long serialVersionUID = 1L;
 	private JPanel optionsMenu;
 	private JLabel name;
-	private JLabel subTitle;
-	private JPanel panelStyles;
-	private JTextPane paneDataStyles;
-	private JComboBoxUPTC styles;
+	private JTextPane subTitle;
+	private JPanel panelCourse;
+	private WebPageDisplay webCourse;
 
 	public JPanelCourse(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
@@ -43,7 +51,8 @@ public class JPanelCourse extends JPanelStart {
 		getDimensionPanelLeft(listener, gbc);
 		firstLine(gbc);
 		secondLine(gbc);
-		
+		thirdLine(gbc);
+		fourLine(gbc);
 
 	}
 
@@ -93,7 +102,7 @@ public class JPanelCourse extends JPanelStart {
 		gbc.fill = GridBagConstraints.NONE; // Sin relleno
 		this.optionsMenu.add(out, gbc);
 		gbc.gridx = 0;
-		gbc.insets = new Insets(0,0,0,0);
+		gbc.insets = new Insets(0, 0, 0, 0);
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		getInfoPanel().add(this.optionsMenu, gbc);
 
@@ -110,28 +119,40 @@ public class JPanelCourse extends JPanelStart {
 		gbc.insets = new Insets(36, 250, 0, 126);
 		getInfoPanel().add(getInfoPanel().getTitle(), gbc);
 
-		configurationPanelStyles();
-		addTextPane();
-		this.panelStyles.add(paneDataStyles, BorderLayout.CENTER);
+	}
+
+	private void thirdLine(GridBagConstraints gbc) {
+		this.subTitle = new JTextPaneUPTC();
 		gbc.gridx = 0;
 		gbc.gridy = 3;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.insets = new Insets(0, 133, 0, 133);
-		getInfoPanel().add(this.paneDataStyles, gbc);
+		getInfoPanel().add(this.subTitle, gbc);
 	}
 
-	private void addTextPane() {
-		this.paneDataStyles = new JTextPaneUPTC();
-		String paragraph = "<html><p style='font-family:Arial; font-size:20px;'> Este es el curso de acuerdo al estilo de aprendizaje que más se acomoda a ti. Gracias por estar aquí. </p></html>";
-		this.paneDataStyles.setText(paragraph);
+	private void fourLine(GridBagConstraints gbc) {
+		configurationPanelStyles();
+		addTextPane();
+		this.panelCourse.add(subTitle, BorderLayout.CENTER);
 
 	}
 
 	private void configurationPanelStyles() {
-		this.panelStyles = new JPanel();
-		this.panelStyles.setLayout(new BorderLayout());
-		this.panelStyles.setOpaque(false);
+		this.panelCourse = new JPanel();
+		this.panelCourse.setLayout(new BorderLayout());
+		this.panelCourse.setOpaque(false);
 	}
 
+	private void addTextPane() {
+		this.subTitle = new JTextPaneUPTC();
+		String paragraph = "<html><p style='font-family:Arial; font-size:20px;'> Este es el curso de acuerdo al estilo de aprendizaje que más se acomoda a ti. Gracias por estar aquí. </p></html>";
+		this.subTitle.setText(paragraph);
+
+	}
+
+	public void setNameUser(String text) {
+		// TODO Auto-generated method stub
+		this.name.setText(text);
+	}
 }
