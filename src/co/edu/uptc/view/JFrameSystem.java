@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import javax.swing.JFrame;
 
+import com.sun.org.apache.bcel.internal.generic.ACONST_NULL;
+
 public class JFrameSystem extends JFrame {
 	/**
 	 * 
@@ -18,6 +20,7 @@ public class JFrameSystem extends JFrame {
 	private JPanelCreateUser createUser;
 	private JPanelForm formStyleLearning;
 	private JChangePasswaord changePassword;
+	private JPanelAccommodating accommodating;
 
 	public JFrameSystem(ActionListener listener, MouseAdapter listenerMouse) {
 		this.setTitle("Aprendamos Juntos");
@@ -36,9 +39,10 @@ public class JFrameSystem extends JFrame {
 //		this.add(loginUser);
 //		formStyleLearning = new JPanelForm(listener, listenerMouse);
 //		this.add(formStyleLearning);
-		changePassword = new JChangePasswaord(listener, listenerMouse);
-		this.add(changePassword);
-
+//		changePassword = new JChangePasswaord(listener, listenerMouse);
+//		this.add(changePassword);
+		accommodating = new JPanelAccommodating(listener, listenerMouse);
+		this.add(accommodating);
 	}
 
 }

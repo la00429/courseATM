@@ -10,7 +10,6 @@ import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
 public class JPanelForm extends JPanelStart {
@@ -18,7 +17,6 @@ public class JPanelForm extends JPanelStart {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JPanel panelStyles;
 	private JTextPane paneDataStyles;
 	private JComboBoxUPTC styles;
 
@@ -26,7 +24,7 @@ public class JPanelForm extends JPanelStart {
 		super(listener, listenerMouse);
 
 		initComponents2(listener, listenerMouse);
-		this.setVisible(false);
+		this.setVisible(true);
 	}
 
 	private void initComponents2(ActionListener listener, MouseAdapter listenerMouse) {
@@ -70,25 +68,24 @@ public class JPanelForm extends JPanelStart {
 
 	private void secondLine(GridBagConstraints gbc) {
 //		configurationPanelStyles();
-		paneDataStyles = new JTextPaneUPTC();
-		String paragraph = "<html><p style='font-family:Arial; font-size:20px;'> <b>Adaptador:</b> Es el estilo de aprendizaje que se basa en la experiencia concreta y la experimentación activa. Las personas con este estilo son prácticas, flexibles, intuitivas y orientadas a la acción. Les gusta resolver problemas, asumir riesgos y aprender haciendo.</p>"
-				+ "<p style='font-family:Arial; font-size:20px;'> <b>Asimilador:</b> Es el estilo de aprendizaje que se basa en la observación reflexiva y la conceptualización abstracta. Las personas con este estilo son lógicas, racionales, analíticas y teóricas. Les gusta estudiar, investigar, planificar y crear modelos.</p>"
-				+ "<p style='font-family:Arial; font-size:20px;'> <b>Divergente:</b> Es el estilo de aprendizaje que se basa en la experiencia concreta y la observación reflexiva. Las personas con este estilo son creativas, imaginativas, emocionales y sensibles. Les gusta explorar, generar ideas, trabajar en grupo y expresarse.</p>"
-				+ "<p style='font-family:Arial; font-size:20px;'> <b>Convergente:</b> Es el estilo de aprendizaje que se basa en la conceptualización abstracta y la experimentación activa. Las personas con este estilo son prácticas, eficientes, objetivas y orientadas a los resultados. Les gusta aplicar lo que saben, tomar decisiones, resolver problemas y encontrar soluciones.</p></html>";
-		paneDataStyles.setText(paragraph);
+		addTextPane();
 //		this.panelStyles.add(paneDataStyles, BorderLayout.CENTER);
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.insets = new Insets(0, 133, 0, 133);
-		getInfoPanel().add(paneDataStyles, gbc);
+		getInfoPanel().add(this.paneDataStyles, gbc);
 	}
 
-	private void configurationPanelStyles() {
-		this.panelStyles = new JPanel();
-		this.panelStyles.setLayout(new BorderLayout());
-		this.panelStyles.setOpaque(false);
+	private void addTextPane() {
+		this.paneDataStyles = new JTextPaneUPTC();
+		String paragraph = "<html><p style='font-family:Arial; font-size:20px;'> <b>Adaptador:</b> Es el estilo de aprendizaje que se basa en la experiencia concreta y la experimentación activa. Las personas con este estilo son prácticas, flexibles, intuitivas y orientadas a la acción. Les gusta resolver problemas, asumir riesgos y aprender haciendo.</p>"
+				+ "<p style='font-family:Arial; font-size:20px;'> <b>Asimilador:</b> Es el estilo de aprendizaje que se basa en la observación reflexiva y la conceptualización abstracta. Las personas con este estilo son lógicas, racionales, analíticas y teóricas. Les gusta estudiar, investigar, planificar y crear modelos.</p>"
+				+ "<p style='font-family:Arial; font-size:20px;'> <b>Divergente:</b> Es el estilo de aprendizaje que se basa en la experiencia concreta y la observación reflexiva. Las personas con este estilo son creativas, imaginativas, emocionales y sensibles. Les gusta explorar, generar ideas, trabajar en grupo y expresarse.</p>"
+				+ "<p style='font-family:Arial; font-size:20px;'> <b>Convergente:</b> Es el estilo de aprendizaje que se basa en la conceptualización abstracta y la experimentación activa. Las personas con este estilo son prácticas, eficientes, objetivas y orientadas a los resultados. Les gusta aplicar lo que saben, tomar decisiones, resolver problemas y encontrar soluciones.</p></html>";
+		this.paneDataStyles.setText(paragraph);
+
 	}
 
 	private void thirdLine(ActionListener listener, GridBagConstraints gbc) {

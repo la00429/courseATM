@@ -140,5 +140,17 @@ public class JPanelStartLeft extends JPanel {
 	public JButtonTraspUPTC getInfo() {
 		return info;
 	}
+	
+	public void setInfo(ActionListener listener,String text) {
+		
+		GridBagConstraints gbc = new GridBagConstraints();
+		this.info.setText(text);
+		this.info.setActionCommand("Help");
+		this.info.addActionListener(listener);
+		gbc.anchor = GridBagConstraints.SOUTHEAST;
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.insets = new Insets(30, 30, 45, 50);
+		this.add(info, gbc);
+	}
 
 }

@@ -48,7 +48,7 @@ public class JPanelLogin extends JPanelStart {
 	}
 
 	private void secondLine(GridBagConstraints gbc) {
-		this.user = new JLabel("Usuario");
+		this.user = new JLabel("Código");
 		this.user.setFont(new Font("Arial", Font.PLAIN, 32));
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 		gbc.gridwidth = GridBagConstraints.REMAINDER;

@@ -24,19 +24,22 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 		if (source.equals("Login")) {
 			System.out.println("Login");
 		}
-		
+
 		if (source.equals("Next")) {
 			System.out.println("Next");
 		}
+		
 		if (source.equals("Record")) {
-			
+
 		}
-		
+
 		if (source.equals("Accept")) {
-			
+
 		}
-		
-		
+
+		if (source.equals("Help")) {
+
+		}
 
 	}
 
@@ -45,24 +48,25 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 		// TODO Auto-generated method stub
 
 	}
+
 //	
 	@Override
-	public void mouseEntered (MouseEvent e) {
+	public void mouseEntered(MouseEvent e) {
 		String source = e.getComponent().getName(); // Obtiene el nombre del componente que disparó el evento
-	    System.out.println("Mouse entered on: " + source);
+		System.out.println("Mouse entered on: " + source);
 
-	    // Ejecutar super después de realizar las operaciones necesarias
-	    super.mouseEntered(e);
-	
+		// Ejecutar super después de realizar las operaciones necesarias
+		super.mouseEntered(e);
+
 	}
-	
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		String source = e.getComponent().getName(); // Obtiene el nombre del componente que disparó el evento
-	    System.out.println("Mouse entered on: " + source);
+		System.out.println("Mouse entered on: " + source);
 
-	    // Ejecutar super después de realizar las operaciones necesarias
-	    super.mouseEntered(e);
+		// Ejecutar super después de realizar las operaciones necesarias
+		super.mouseEntered(e);
 	}
 //	
 //	@Override

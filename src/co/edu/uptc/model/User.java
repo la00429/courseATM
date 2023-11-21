@@ -3,15 +3,31 @@ package co.edu.uptc.model;
 import java.io.Serializable;
 
 public class User implements Serializable {
+	private String code;
 	private String name;
+	private String gender;
 	private String password;
 	private String styleLearning;
 
-	public User(String name, String password, String stylelearning) {
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public User(String code, String name, String gender, String password, String styleLearning) {
 		super();
+		this.code = code;
 		this.name = name;
+		this.gender = gender;
 		this.password = password;
-		this.styleLearning=stylelearning;
+		this.styleLearning = styleLearning;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getName() {
@@ -22,6 +38,14 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -29,13 +53,13 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public void setStyleLearning(String styleLearning) {
-		this.styleLearning = styleLearning;
-	}
 
 	public String getStyleLearning() {
 		return styleLearning;
+	}
+
+	public void setStyleLearning(String styleLearning) {
+		this.styleLearning = styleLearning;
 	}
 
 }
