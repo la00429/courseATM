@@ -110,8 +110,8 @@ public class JPanelLogin extends JPanelStart {
 	}
 
 	public void cleanPanel() {
-//		this.userInput.setText("");
-//		this.passwordInput.setText("");
+		this.userInput.setText("");
+		this.passwordInput.setText("");
 	}
 
 	public String getUserInput() {

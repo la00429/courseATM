@@ -66,8 +66,6 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		view.getFrameApp().revalidate();
-		view.getFrameApp().repaint();
 		String source = e.getActionCommand();
 		if (source.equals("Login")) {
 			verificationLogin();
@@ -82,9 +80,7 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 		}
 
 		if (source.equals("Record")) {
-			getDataCourse();
-			getDataUser();
-			cleanDataPanel();
+			loadDataCourse();
 		}
 
 		if (source.equals("Accept")) {
@@ -100,26 +96,24 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 		}
 
 		if (source.equals("Help")) {
-			view.getFrameApp().showMessageInfo(Message.HELP);
-			;
+			showData(Message.HELP);
+
 		}
 
 		if (source.equals("Us")) {
-			view.getFrameApp().showMessageInfo(Message.ABOUT_US);
+			showData(Message.ABOUT_US);
 		}
 	}
 
-	private void logOutSystem() {
-		view.getFrameApp().stateCourse(false);
-		view.getFrameApp().stateLoginUser(true);
+	public void logOutSystem() {
+		view.accessLogin();
 	}
 
-	private void changeToCreateUser() {
-		view.getFrameApp().stateLoginUser(false);
-		view.getFrameApp().stateCreateUser(true);
+	public void changeToCreateUser() {
+		view.accessCreate();
 	}
 
-	private void updatePanelChangePasswaord() {
+	public void updatePanelChangePasswaord() {
 		String codeUser = view.getFrameApp().getChangePassword().getUserInput();
 		String passwordUserNew = view.getFrameApp().getChangePassword().getPasswordInput();
 		if (!codeUser.isEmpty() && !passwordUserNew.isEmpty()) {
@@ -139,14 +133,19 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 
 	private void updateStatePasword(String codeUser) {
 		changeDataUser(codeUser);
-		view.getFrameApp().stateChangePassword(false);
-		view.getFrameApp().stateLoginUser(true);
+		view.accessLoginChange();
 		view.getFrameApp().getChangePassword().cleanPanel();
 	}
 
 	private void changeDataUser(String codeUser) {
-		sPrincipal.getUsers().get(codeUser).setPassword(view.getFrameApp().getChangePassword().getPasswordInput());
+		sPrincipal.changePassword(codeUser, view.getFrameApp().getChangePassword().getPasswordInput());
 		loadData.writeUsersJSON(sPrincipal.getUsers());
+	}
+
+	public void loadDataCourse() {
+		getDataCourse();
+		getDataUser();
+		cleanDataPanel();
 	}
 
 	private void getDataCourse() {
@@ -156,10 +155,9 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 	}
 
 	private void loadCourse(String courseSelect, String nameUser) {
-		view.getFrameApp().stateFormStyleLearning(false);
 		view.getFrameApp().setCourse(sPrincipal.selectCourse(courseSelect));
 		view.getFrameApp().setNameUser(nameUser);
-		view.getFrameApp().stateCourse(true);
+		view.accessCourseCreate();
 	}
 
 	private void getDataUser() {
@@ -181,7 +179,7 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 		view.getFrameApp().getFormStyleLearning().cleanPanel();
 	}
 
-	private void createUserData() {
+	public void createUserData() {
 		String name = view.getFrameApp().getCreateUser().getName();
 		String code = view.getFrameApp().getCreateUser().getCode();
 		String gender = view.getFrameApp().getCreateUser().getSelectedGender();
@@ -191,10 +189,10 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 
 	private void createUserMessage(String name, String code, String gender, String password) {
 		if (name.isEmpty() || code.isEmpty() || gender.isEmpty() || password.isEmpty()) {
-			view.getFrameApp().showMessageInfo(Message.ERROR_NULL);
+			showData(Message.ERROR_NULL);
 		} else {
 			if (sPrincipal.getUsers().containsKey(code)) {
-				view.getFrameApp().showMessageInfo(Message.ERROR_TWIN);
+				showData(Message.ERROR_TWIN);
 			} else {
 				createUserNext();
 			}
@@ -202,13 +200,11 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 	}
 
 	private void createUserNext() {
-		view.getFrameApp().stateCreateUser(false);
-		view.getFrameApp().stateFormStyleLearning(true);
+		view.accessForm();
 	}
 
-	private void forgotPassword() {
-		view.getFrameApp().stateLoginUser(false);
-		view.getFrameApp().stateChangePassword(true);
+	public void forgotPassword() {
+		view.accessChange();
 	}
 
 	public void verificationLogin() {
@@ -223,29 +219,31 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 	}
 
 	private void loginAcess(String codeUser) {
-		view.getFrameApp().stateLoginUser(false);
 		selectCourse(codeUser);
-		showData(codeUser);
-		view.getFrameApp().stateCourse(true);
+		showName(codeUser);
+		view.accessCourseCreate();
 		view.getFrameApp().getLoginUser().cleanPanel();
 	}
 
 	private void loginMessage(String codeUser, String passwordUser) {
 		if (codeUser.isEmpty() || passwordUser.isEmpty()) {
-			view.getFrameApp().showMessageInfo(Message.ERROR_NULL);
+			showData(Message.ERROR_NULL);
 		} else {
-			view.getFrameApp().showMessageInfo(Message.ERROR_NO_FOUND);
+			showData(Message.ERROR_NO_FOUND);
 		}
 	}
 
-	public void selectCourse(String codeUser) {
-		view.getFrameApp().setCourse(sPrincipal.selectCourse(sPrincipal.getUsers().get(codeUser).getStyleLearning()));
+	private void selectCourse(String codeUser) {
+		view.setCourse(sPrincipal.selectCourse(sPrincipal.showUser(codeUser).getStyleLearning()));
 
 	}
 
-	@Override
-	public void showData(String codeUser) {
-		view.getFrameApp().getCourse().setNameUser(sPrincipal.getUsers().get(codeUser).getName());
+	private void showName(String codeUser) {
+		view.getFrameApp().getCourse().setNameUser(sPrincipal.showUser(codeUser).getName());
+	}
+
+	public void showData(String message) {
+		view.showData(message);
 	}
 
 }

@@ -1,18 +1,59 @@
 package co.edu.uptc.config;
 
+/**
+ * Clase que contiene mensajes estáticos utilizados en la aplicación (cargados
+ * desde un properties). Contiene campos estáticos para diferentes mensajes
+ * relacionados con la interfaz de usuario.
+ */
 public class Message {
-	// Login
+
+	/**
+	 * Título para la ventana de inicio de sesión.
+	 */
 	public static String TITLE_LOGIN;
 
-	// Para los JDialog
+	/**
+	 * Mensaje 'Acerca de nosotros' para los diálogos.
+	 */
 	public static String ABOUT_US;
-	public static String HELP;
-	public static String PATH_SITES;
-	public static String PATH_STYLES;
-	public static String PATH_GENDER;
-	public static String MESSAGE_COURSE;
-	public static String ERROR_NO_FOUND;
-	public static String ERROR_NULL;
-	public static String ERROR_TWIN;
 
+	/**
+	 * Mensaje de ayuda para los diálogos.
+	 */
+	public static String HELP;
+
+	/**
+	 * Ruta para los sitios.
+	 */
+	public static String PATH_SITES;
+
+	/**
+	 * Ruta para los estilos.
+	 */
+	public static String PATH_STYLES;
+
+	/**
+	 * Ruta para género.
+	 */
+	public static String PATH_GENDER;
+
+	/**
+	 * Mensaje relacionado con los cursos.
+	 */
+	public static String MESSAGE_COURSE;
+
+	/**
+	 * Mensaje de error: no se encontró.
+	 */
+	public static String ERROR_NO_FOUND;
+
+	/**
+	 * Mensaje de error: valor nulo.
+	 */
+	public static String ERROR_NULL;
+
+	/**
+	 * Mensaje de error: valor duplicado.
+	 */
+	public static String ERROR_TWIN;
 }
