@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Properties;
 
+// TODO: Auto-generated Javadoc
 /**
  * Clase encargada de cargar mensajes desde un archivo de propiedades y
  * asignarlos a un objeto Message usando reflexión.

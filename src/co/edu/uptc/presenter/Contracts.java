@@ -1,5 +1,6 @@
 package co.edu.uptc.presenter;
 
+// TODO: Auto-generated Javadoc
 /**
  * Esta interfaz define los contratos (interfaces) para las vistas,
  * presentadores y modelos.
@@ -44,7 +45,7 @@ public interface Contracts {
 		public void accessCreate();
 
 		/**
-		 * Accede al curso desde la ruta de paneles para crear un usuario
+		 * Accede al curso desde la ruta de paneles para crear un usuario.
 		 */
 		public void accessCourseCreate();
 
@@ -75,7 +76,7 @@ public interface Contracts {
 		public void forgotPassword();
 
 		/**
-		 * método para navegar en la creación de usuario
+		 * método para navegar en la creación de usuario.
 		 */
 		public void createUserData();
 
@@ -85,23 +86,23 @@ public interface Contracts {
 		public void loadDataCourse();
 
 		/**
-		 * Actualiza el cambio de contraseña
+		 * Actualiza el cambio de contraseña.
 		 */
 		public void updatePanelChangePasswaord();
 
 		/**
-		 * Navegación entre el panel login y el de creación de usuario
+		 * Navegación entre el panel login y el de creación de usuario.
 		 */
 		public void changeToCreateUser();
 
 		/**
-		 * Navega entre el panel del curso y vuelve a login
+		 * Navega entre el panel del curso y vuelve a login.
 		 */
 		public void logOutSystem();
 
 		/**
-		 * Método para mostrar mensajes dentro de los JDialogs
-		 * 
+		 * Método para mostrar mensajes dentro de los JDialogs.
+		 *
 		 * @param message el mensaje qu quiero que se muestre.
 		 */
 		public void showData(String message);
@@ -111,7 +112,6 @@ public interface Contracts {
 	/**
 	 * Muestra información de un usuario basado en su código.
 	 *
-	 * @param codeUser El código del usuario.
 	 * @return El objeto que representa al usuario.
 	 */
 	public interface IModel {

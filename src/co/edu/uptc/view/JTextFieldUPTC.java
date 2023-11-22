@@ -11,6 +11,7 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
+// TODO: Auto-generated Javadoc
 /**
  * Clase JTextFieldUPTC que extiende JTextField para proporcionar un JTextField
  * con características especiales.

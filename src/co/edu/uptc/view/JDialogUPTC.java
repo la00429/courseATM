@@ -8,10 +8,23 @@ import java.awt.Insets;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JDialogUPTC.
+ */
 public class JDialogUPTC extends JDialog {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The text pane. */
 	private JTextPaneUPTC textPane;
 
+	/**
+	 * Instantiates a new j dialog UPTC.
+	 *
+	 * @param parent the parent
+	 */
 	public JDialogUPTC(JFrame parent) {
 		super(parent, "", true);
 		setBackground(Color.BLACK);
@@ -23,6 +36,9 @@ public class JDialogUPTC extends JDialog {
 		setVisible(false);
 	}
 
+	/**
+	 * Inits the components.
+	 */
 	private void initComponents() {
 		GridBagConstraints gbc = new GridBagConstraints();
 		this.textPane = new JTextPaneUPTC();
@@ -33,6 +49,11 @@ public class JDialogUPTC extends JDialog {
 
 	}
 
+	/**
+	 * Gets the text pane.
+	 *
+	 * @return the text pane
+	 */
 	public JTextPaneUPTC getTextPane() {
 		return textPane;
 	}

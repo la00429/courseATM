@@ -9,22 +9,51 @@ import java.awt.event.MouseAdapter;
 
 import javax.swing.JLabel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JPanelLogin.
+ */
 public class JPanelLogin extends JPanelStart {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The user. */
 	private JLabel user;
+	
+	/** The user input. */
 	private JTextFieldUPTC userInput;
+	
+	/** The password. */
 	private JLabel password;
+	
+	/** The password input. */
 	private JPasswordUPTC passwordInput;
+	
+	/** The forget password. */
 	private JButtonTraspUPTC forgetPassword;
+	
+	/** The create count. */
 	private JButtonTraspUPTC createCount;
 
+	/**
+	 * Instantiates a new j panel login.
+	 *
+	 * @param listener the listener
+	 * @param listenerMouse the listener mouse
+	 */
 	public JPanelLogin(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
 		initComponents2(listener, listenerMouse);
 		this.setVisible(true);
 	}
 
+	/**
+	 * Inits the components 2.
+	 *
+	 * @param listener the listener
+	 * @param listenerMouse the listener mouse
+	 */
 	private void initComponents2(ActionListener listener, MouseAdapter listenerMouse) {
 		getInfoPanel().setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -38,6 +67,11 @@ public class JPanelLogin extends JPanelStart {
 		eightLine(listener, gbc);
 	}
 
+	/**
+	 * First line.
+	 *
+	 * @param gbc the gbc
+	 */
 	private void firstLine(GridBagConstraints gbc) {
 		getInfoPanel().getTitle().setText("Iniciar sesión");
 		getInfoPanel().getTitle().setFont(new Font("Arial", Font.BOLD, 64));
@@ -47,6 +81,11 @@ public class JPanelLogin extends JPanelStart {
 		getInfoPanel().add(getInfoPanel().getTitle(), gbc);
 	}
 
+	/**
+	 * Second line.
+	 *
+	 * @param gbc the gbc
+	 */
 	private void secondLine(GridBagConstraints gbc) {
 		this.user = new JLabel("Código");
 		this.user.setFont(new Font("Arial", Font.PLAIN, 32));
@@ -57,6 +96,11 @@ public class JPanelLogin extends JPanelStart {
 
 	}
 
+	/**
+	 * Third line.
+	 *
+	 * @param gbc the gbc
+	 */
 	private void thirdLine(GridBagConstraints gbc) {
 		this.userInput = new JTextFieldUPTC();
 		gbc.insets = new Insets(0, 30, 30, 0);
@@ -65,6 +109,11 @@ public class JPanelLogin extends JPanelStart {
 
 	}
 
+	/**
+	 * Four line.
+	 *
+	 * @param gbc the gbc
+	 */
 	private void fourLine(GridBagConstraints gbc) {
 		this.password = new JLabel("Contraseña");
 		this.password.setFont(new Font("Arial", Font.PLAIN, 32));
@@ -74,6 +123,11 @@ public class JPanelLogin extends JPanelStart {
 
 	}
 
+	/**
+	 * Five line.
+	 *
+	 * @param gbc the gbc
+	 */
 	private void fiveLine(GridBagConstraints gbc) {
 		this.passwordInput = new JPasswordUPTC();
 		gbc.insets = new Insets(0, 30, 70, 0);
@@ -81,6 +135,12 @@ public class JPanelLogin extends JPanelStart {
 		getInfoPanel().add(passwordInput, gbc);
 	}
 
+	/**
+	 * Six line.
+	 *
+	 * @param listener the listener
+	 * @param gbc the gbc
+	 */
 	private void sixLine(ActionListener listener, GridBagConstraints gbc) {
 		getInfoPanel().getButton().setText("Iniciar sesión");
 		getInfoPanel().getButton().setActionCommand("Login");
@@ -91,6 +151,12 @@ public class JPanelLogin extends JPanelStart {
 		getInfoPanel().add(getInfoPanel().getButton(), gbc);
 	}
 
+	/**
+	 * Seven line.
+	 *
+	 * @param listener the listener
+	 * @param gbc the gbc
+	 */
 	private void sevenLine(ActionListener listener, GridBagConstraints gbc) {
 		this.forgetPassword = new JButtonTraspUPTC("Olvidé mi contraseña");
 		this.forgetPassword.setActionCommand("Forgot");
@@ -101,6 +167,12 @@ public class JPanelLogin extends JPanelStart {
 
 	}
 
+	/**
+	 * Eight line.
+	 *
+	 * @param listener the listener
+	 * @param gbc the gbc
+	 */
 	private void eightLine(ActionListener listener, GridBagConstraints gbc) {
 		this.createCount = new JButtonTraspUPTC("Crear una cuenta");
 		this.createCount.setActionCommand("Create");
@@ -109,15 +181,28 @@ public class JPanelLogin extends JPanelStart {
 		getInfoPanel().add(createCount, gbc);
 	}
 
+	/**
+	 * Clean panel.
+	 */
 	public void cleanPanel() {
 		this.userInput.setText("");
 		this.passwordInput.setText("");
 	}
 
+	/**
+	 * Gets the user input.
+	 *
+	 * @return the user input
+	 */
 	public String getUserInput() {
 		return userInput.getText();
 	}
 
+	/**
+	 * Gets the password input.
+	 *
+	 * @return the password input
+	 */
 	public String getPasswordInput() {
 		char[] passwordChars = passwordInput.getPassword();
 		return new String(passwordChars);

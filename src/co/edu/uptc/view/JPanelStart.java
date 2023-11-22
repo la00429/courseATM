@@ -15,11 +15,27 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JPanelStart.
+ */
 public class JPanelStart extends JPanel {
+    
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
+    
+    /** The img user. */
     private JPanelStartLeft imgUser;
+    
+    /** The info panel. */
     private JPanelStartRight infoPanel;
 
+    /**
+     * Instantiates a new j panel start.
+     *
+     * @param listener the listener
+     * @param listenerMouse the listener mouse
+     */
     public JPanelStart(ActionListener listener, MouseAdapter listenerMouse) {
         this.setBackground(new Color(255, 255, 255));
         this.setLayout(new GridBagLayout());
@@ -27,6 +43,12 @@ public class JPanelStart extends JPanel {
         this.setVisible(true);
     }
 
+    /**
+     * Inits the components.
+     *
+     * @param listener the listener
+     * @param listenerMouse the listener mouse
+     */
     private void initComponents(ActionListener listener, MouseAdapter listenerMouse) {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -44,10 +66,20 @@ public class JPanelStart extends JPanel {
         add(infoPanel, gbc);
     }
 
+    /**
+     * Gets the img user.
+     *
+     * @return the img user
+     */
     public JPanelStartLeft getImgUser() {
         return imgUser;
     }
 
+    /**
+     * Gets the info panel.
+     *
+     * @return the info panel
+     */
     public JPanelStartRight getInfoPanel() {
         return infoPanel;
     }

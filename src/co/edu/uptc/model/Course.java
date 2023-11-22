@@ -1,11 +1,15 @@
 package co.edu.uptc.model;
 
+// TODO: Auto-generated Javadoc
 /**
  * Clase que representa un curso con un nombre y su información asociada.
  */
 public class Course {
 
+	/** The name. */
 	private String name; // Nombre del curso
+	
+	/** The info. */
 	private String info; // Información del curso
 
 	/**

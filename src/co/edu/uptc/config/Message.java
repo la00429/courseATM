@@ -1,5 +1,6 @@
 package co.edu.uptc.config;
 
+// TODO: Auto-generated Javadoc
 /**
  * Clase que contiene mensajes estáticos utilizados en la aplicación (cargados
  * desde un properties). Contiene campos estáticos para diferentes mensajes

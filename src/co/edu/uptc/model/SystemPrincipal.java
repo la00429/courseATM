@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import co.edu.uptc.presenter.Contracts;
 
+// TODO: Auto-generated Javadoc
 /**
  * Clase que implementa la interfaz IModel y gestiona la lógica del sistema
  * principal. Esta clase contiene métodos para manipular usuarios y cursos en el
@@ -12,7 +13,10 @@ import co.edu.uptc.presenter.Contracts;
  */
 public class SystemPrincipal implements Contracts.IModel {
 
+	/** The courses. */
 	private ArrayList<Course> courses; // Lista de cursos en el sistema
+	
+	/** The users. */
 	private HashMap<String, User> users; // Mapa de usuarios en el sistema
 
 	/**
@@ -106,8 +110,8 @@ public class SystemPrincipal implements Contracts.IModel {
 	}
 
 	/**
-	 * Devuelve el arrayList de los cursos
-	 * 
+	 * Devuelve el arrayList de los cursos.
+	 *
 	 * @return arrayList
 	 */
 	public ArrayList<Course> getCourses() {
@@ -115,8 +119,8 @@ public class SystemPrincipal implements Contracts.IModel {
 	}
 
 	/**
-	 * Devuelve el HashMap de Usuarios
-	 * 
+	 * Devuelve el HashMap de Usuarios.
+	 *
 	 * @return un hashMap de Usuarios
 	 */
 	public HashMap<String, User> getUsers() {
@@ -126,8 +130,8 @@ public class SystemPrincipal implements Contracts.IModel {
 	/**
 	 * Asisgna un hashMap a users. Se usa en el presenter para persisitir los
 	 * usuarios a la clase princiopal de modelo. 
-	 * 
-	 * @param users
+	 *
+	 * @param users the users
 	 */
 	public void setUsers(HashMap<String, User> users) {
 		this.users = users;

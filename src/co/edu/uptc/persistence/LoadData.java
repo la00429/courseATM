@@ -21,8 +21,18 @@ import javax.json.JsonWriter;
 
 import co.edu.uptc.model.User;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoadData.
+ */
 public class LoadData {
 
+	/**
+	 * Read txt.
+	 *
+	 * @param path the path
+	 * @return the array list
+	 */
 	public ArrayList<String> readTxt(String path) {
 		ArrayList<String> fileAll = new ArrayList<String>();
 		File file = new File(path);
@@ -46,6 +56,11 @@ public class LoadData {
 
 	}
 
+	/**
+	 * Write users JSON.
+	 *
+	 * @param users the users
+	 */
 	public void writeUsersJSON(HashMap<String, User> users) {
 		verificationEmptyJSON(users);
 		try {
@@ -76,6 +91,11 @@ public class LoadData {
 		}
 	}
 
+	/**
+	 * Verification empty JSON.
+	 *
+	 * @param users the users
+	 */
 	private void verificationEmptyJSON(HashMap<String, User> users) {
 		try {
 			if (users.isEmpty()) {
@@ -96,6 +116,11 @@ public class LoadData {
 		}
 	}
 
+	/**
+	 * Read users JSON.
+	 *
+	 * @return the hash map
+	 */
 	public HashMap<String, User> readUsersJSON() {
 		HashMap<String, User> users = new HashMap<String, User>();
 		try {
@@ -121,6 +146,9 @@ public class LoadData {
 		return users;
 	}
 
+	/**
+	 * Creates the resources.
+	 */
 	private void createResources() {
 		File dataFolder = new File("data");
 		if (!dataFolder.exists()) {

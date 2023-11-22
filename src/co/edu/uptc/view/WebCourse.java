@@ -12,6 +12,7 @@ import javafx.scene.layout.FlowPane;
 
 import javafx.scene.web.WebView;
 
+// TODO: Auto-generated Javadoc
 /**
  * Clase que representa un componente de visualización web con funcionalidad de
  * zoom. Extiende JFXPanel y contiene un WebView para mostrar contenido web y
@@ -19,10 +20,16 @@ import javafx.scene.web.WebView;
  */
 public class WebCourse extends JFXPanel {
 
-	/** SerialVersionUID para la serialización de la clase */
+	/**  SerialVersionUID para la serialización de la clase. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The web view. */
 	private WebView webView; // Componente WebView para mostrar contenido web
+	
+	/** The zoom in button. */
 	private Button zoomInButton; // Botón para aumentar el zoom
+	
+	/** The zoom out button. */
 	private Button zoomOutButton; // Botón para reducir el zoom
 
 	/**

@@ -2,17 +2,29 @@ package co.edu.uptc.model;
 
 import java.io.Serializable;
 
+// TODO: Auto-generated Javadoc
 /**
  * Clase que representa un usuario en el sistema. Implementa Serializable para
  * permitir la serialización de objetos.
  */
 public class User implements Serializable {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The code. */
 	private String code; // Código del usuario
+	
+	/** The name. */
 	private String name; // Nombre del usuario
+	
+	/** The gender. */
 	private String gender; // Género del usuario
+	
+	/** The password. */
 	private String password; // Contraseña del usuario
+	
+	/** The style learning. */
 	private String styleLearning; // Estilo de aprendizaje del usuario
 
 	/**

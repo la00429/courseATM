@@ -18,13 +18,32 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JPanelStartLeft.
+ */
 public class JPanelStartLeft extends JPanel {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The img user grey. */
 	private JLabel imgUserGrey;
+	
+	/** The img UPTC. */
 	private JLabel imgUPTC;
+	
+	/** The info. */
 	private JButtonTraspUPTC info;
+	
+	/** The radio. */
 	public final int radio = 5;
 
+	/**
+	 * Instantiates a new j panel start left.
+	 *
+	 * @param listener the listener
+	 */
 	public JPanelStartLeft(ActionListener listener) {
 		this.setSize(getMaximumSize());
 		this.setLayout(new GridBagLayout());
@@ -35,10 +54,18 @@ public class JPanelStartLeft extends JPanel {
 		this.setVisible(true);
 	}
 
+	/**
+	 * Border panel.
+	 */
 	private void borderPanel() {
 		this.setOpaque(false);
 	}
 
+	/**
+	 * Paint component.
+	 *
+	 * @param g the g
+	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -52,14 +79,21 @@ public class JPanelStartLeft extends JPanel {
 		g2d.dispose();
 	}
 
+	/**
+	 * Inits the components.
+	 *
+	 * @param listenerMouse the listener mouse
+	 * @param gbc the gbc
+	 */
 	private void initComponents(ActionListener listenerMouse, GridBagConstraints gbc) {
 		firstLineUser(gbc);
 		secondLineUser(listenerMouse, gbc);
 	}
 
 	/**
-	 * 
-	 * @param gbc
+	 * First line user.
+	 *
+	 * @param gbc the gbc
 	 */
 	private void firstLineUser(GridBagConstraints gbc) {
 		imgUserGrey = new JLabel();
@@ -81,6 +115,12 @@ public class JPanelStartLeft extends JPanel {
 		this.add(imgUserGrey, gbc);
 	}
 
+	/**
+	 * First line user.
+	 *
+	 * @param width the width
+	 * @param height the height
+	 */
 	public void firstLineUser(int width, int height) {
 		GridBagConstraints gbc = new GridBagConstraints();
 		imgUserGrey = new JLabel();
@@ -101,6 +141,12 @@ public class JPanelStartLeft extends JPanel {
 		this.add(imgUserGrey, gbc);
 	}
 
+	/**
+	 * Second line user.
+	 *
+	 * @param listener the listener
+	 * @param gbc the gbc
+	 */
 	private void secondLineUser(ActionListener listener, GridBagConstraints gbc) {
 		imgUPTC = new JLabel();
 		ImageIcon imageIcon = new ImageIcon("img/logoUPTC.png");
@@ -129,18 +175,38 @@ public class JPanelStartLeft extends JPanel {
 		this.add(info, gbc);
 	}
 
+	/**
+	 * Gets the img UPTC.
+	 *
+	 * @return the img UPTC
+	 */
 	public JLabel getImgUPTC() {
 		return imgUPTC;
 	}
 
+	/**
+	 * Gets the img user grey.
+	 *
+	 * @return the img user grey
+	 */
 	public JLabel getImgUserGrey() {
 		return imgUserGrey;
 	}
 
+	/**
+	 * Gets the info.
+	 *
+	 * @return the info
+	 */
 	public JButtonTraspUPTC getInfo() {
 		return info;
 	}
 	
+	/**
+	 * Sets the info.
+	 *
+	 * @param text the new info
+	 */
 	public void setInfo(String text) {
 		GridBagConstraints gbc = new GridBagConstraints();
 		this.info.setText(text);

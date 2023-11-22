@@ -14,17 +14,32 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+// TODO: Auto-generated Javadoc
 /**
  * Clase que representa el panel de visualización de cursos en la interfaz de usuario.
  * Extiende JPanelStart e incluye componentes para mostrar información del curso y el contenido del mismo.
  */
 public class JPanelCourse extends JPanelStart {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+    
+    /** The options menu. */
     private JPanel optionsMenu; // Panel para mostrar el menú de opciones
+    
+    /** The logout. */
     private JButtonTraspUPTC logout; // Botón para cerrar sesión
+    
+    /** The name. */
     private JLabel name; // Etiqueta para mostrar el nombre del usuario
+    
+    /** The sub title. */
     private JTextPaneUPTC subTitle; // Panel de texto para mostrar información adicional
+    
+    /** The panel course. */
     private JPanel panelCourse; // Panel principal del curso
+    
+    /** The web course. */
     private WebCourse webCourse; // Componente para visualizar el contenido web del curso
 
 
@@ -57,8 +72,10 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Redimensipna el panel de la derecha.
+	 *
 	 * @param listener Escuchador de eventos.
 	 * @param gbc Objecto para disposiciónes.
+	 * @return the dimension panel left
 	 */
 	private void getDimensionPanelLeft(ActionListener listener, GridBagConstraints gbc) {
 		panelLeft(gbc);
@@ -157,6 +174,11 @@ public class JPanelCourse extends JPanelStart {
 		this.name = new JLabel();
 	}
 
+	/**
+	 * Third line.
+	 *
+	 * @param gbc the gbc
+	 */
 	private void thirdLine(GridBagConstraints gbc) {
 		this.subTitle = new JTextPaneUPTC();
 		this.subTitle.setColorBack(Color.white);

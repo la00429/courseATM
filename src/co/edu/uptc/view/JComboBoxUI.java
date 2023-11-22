@@ -8,9 +8,20 @@ import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicArrowButton;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JComboBoxUI.
+ */
 public class JComboBoxUI extends BasicComboBoxUI {
+	
+	/** The Constant ROUNDNESS. */
 	private static final int ROUNDNESS = 15; // Radio de redondez de los bordes
 
+	/**
+	 * Creates the arrow button.
+	 *
+	 * @return the j button
+	 */
 	@Override
 	protected JButton createArrowButton() {
 		super.configureArrowButton();
@@ -22,6 +33,9 @@ public class JComboBoxUI extends BasicComboBoxUI {
 		return arrowButton;
 	}
 
+	/**
+	 * Install defaults.
+	 */
 	@Override
 	protected void installDefaults() {
 		super.installDefaults();
@@ -30,6 +44,13 @@ public class JComboBoxUI extends BasicComboBoxUI {
 		comboBox.setOpaque(false); // Establece el JComboBox como no opaco para ver el fondo detrás del borde
 	}
 
+	/**
+	 * Paint current value background.
+	 *
+	 * @param g the g
+	 * @param bounds the bounds
+	 * @param hasFocus the has focus
+	 */
 	@Override
 	public void paintCurrentValueBackground(Graphics g, Rectangle bounds, boolean hasFocus) {
 		if (comboBox.isEnabled() && !comboBox.isEditable()) {

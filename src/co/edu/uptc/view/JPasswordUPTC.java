@@ -17,14 +17,21 @@ import javax.swing.BorderFactory;
 import javax.swing.JPasswordField;
 import javax.swing.JToggleButton;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JPasswordUPTC.
+ */
 public class JPasswordUPTC extends JPasswordField {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The show hide button. */
 	private   JToggleButton showHideButton;
 
+	/**
+	 * Instantiates a new j password UPTC.
+	 */
 	public JPasswordUPTC() {
 		setOpaque(false);
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -33,6 +40,11 @@ public class JPasswordUPTC extends JPasswordField {
         setFont(new Font("Arial", Font.PLAIN, 20));
     }
 
+    /**
+     * Paint component.
+     *
+     * @param g the g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g.create();

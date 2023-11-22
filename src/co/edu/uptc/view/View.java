@@ -7,69 +7,109 @@ import javax.swing.SwingUtilities;
 
 import co.edu.uptc.presenter.Contracts;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class View.
+ */
 public class View implements Contracts.IView {
+	
+	/** The frame app. */
 	private JFrameSystem frameApp;
 
+	/**
+	 * Instantiates a new view.
+	 *
+	 * @param listener the listener
+	 * @param listenerMouse the listener mouse
+	 */
 	public View(ActionListener listener, MouseAdapter listenerMouse) {
 		frameApp = new JFrameSystem(listener, listenerMouse);
 	}
 
-	@Override
+	/**
+	 * Muestra un mensaje en la vista.
+	 *
+	 * @param message El mensaje a mostrar.
+	 */
 	public void showData(String message) {
 		this.getFrameApp().showMessageInfo(message);
 	}
 
+	/**
+	 * Establece el nombre del curso en la vista.
+	 *
+	 * @param course El nombre del curso a establecer.
+	 */
 	public void setCourse(String course) {
 		this.getFrameApp().setCourse(course);
 	}
 
+	/**
+	 * Gets the frame app.
+	 *
+	 * @return the frame app
+	 */
 	public JFrameSystem getFrameApp() {
 		return frameApp;
 	}
 
-	@Override
+	/**
+	 * Accede al inicio de sesión.
+	 */
 	public void accessLogin() {
 		getFrameApp().stateCourse(false);
 		getFrameApp().stateLoginUser(true);
 
 	}
 
-	@Override
+	/**
+	 * Accede al curso.
+	 */
 	public void accessCourse() {
 		getFrameApp().stateLoginUser(false);
 		getFrameApp().stateCourse(true);
 
 	}
 
-	@Override
+	/**
+	 * Accede al panel de creación de usuario.
+	 */
 	public void accessCreate() {
 		getFrameApp().stateLoginUser(false);
 		getFrameApp().stateCreateUser(true);
 
 	}
 
-	@Override
+	/**
+	 * Accede al curso desde la ruta de paneles para crear un usuario.
+	 */
 	public void accessCourseCreate() {
 		getFrameApp().stateFormStyleLearning(false);
 		getFrameApp().stateCourse(true);
 
 	}
 
-	@Override
+	/**
+	 * Accede al cambio de contraseña.
+	 */
 	public void accessChange() {
 		getFrameApp().stateLoginUser(false);
 		getFrameApp().stateChangePassword(true);
 
 	}
 
-	@Override
+	/**
+	 * Accede al formulario de estilos de aprendizaje.
+	 */
 	public void accessForm() {
 		getFrameApp().stateCreateUser(false);
 		getFrameApp().stateFormStyleLearning(true);
 
 	}
 
-	@Override
+	/**
+	 * Accede al sesión desde el cambio de contraseña.
+	 */
 	public void accessLoginChange() {
 		getFrameApp().stateChangePassword(false);
 		getFrameApp().stateLoginUser(true);
