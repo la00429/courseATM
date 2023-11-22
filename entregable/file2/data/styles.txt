@@ -1,4 +1,0 @@
-Asimilador
-Adaptador
-Divergente
-Convergente
