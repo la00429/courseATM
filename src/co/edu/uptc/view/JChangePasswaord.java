@@ -19,8 +19,9 @@ public class JChangePasswaord extends JPanelStart {
 
 	public JChangePasswaord(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
-		this.setVisible(true);
+
 		initComponents2(listener, listenerMouse);
+		this.setVisible(false);
 	}
 
 	private void initComponents2(ActionListener listener, MouseAdapter listenerMouse) {

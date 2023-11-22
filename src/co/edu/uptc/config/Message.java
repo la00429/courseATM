@@ -1,7 +1,14 @@
 package co.edu.uptc.config;
 
 public class Message {
-	//Login
-	public String titleLogin;
+	// Login
+	public static String TITLE_LOGIN;
+
+	// Para los JDialog
+	public static String ABOUT_US;
+	public static String HELP;
+	public static String PATH_SITES;
+	public static String PATH_STYLES;
+	public static String PATH_GENDER;
 
 }

@@ -11,18 +11,12 @@ import java.util.Properties;
 
 public class Config {
 
-	private Message message;
-
-	public Message loadMessages() {
-		message = new Message();
+	public void loadMessages() {
+		Message message = new Message();
 		try {
 			Class<?> classMyObj = message.getClass();
 			Field[] fields = classMyObj.getDeclaredFields();
-			// Properties como un arreglo de cadenas.F
 			String[] messagesAll = loadProperties();
-			// for (Field field : fields) {
-//		fields.
-			// }Revisar sintaxis de los forEach.
 			for (int i = 0; i < fields.length; i++) {
 				fields[i].setAccessible(true);
 				fields[i].set(message, messagesAll[i]);
@@ -34,26 +28,17 @@ public class Config {
 		} catch (IllegalAccessException e) {
 			e.getMessage();
 		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-// reflejo del objeto message;
-
-		return message;
 
 	}
 
 	private String[] loadProperties() throws FileNotFoundException, IOException {
 		Properties file = new Properties();
-		file.load(new FileReader("resources/messages.properties")); /// Cargar lista de atributos
-// Ordenar file
+		file.load(new FileReader("config/config.properties"));
 		ArrayList<String> fileOrder = keysOrder(file);
-// añadirle a cada atributo del objeto message un dato del archivo que ya se
-// encuentra en fileOrder.
 		String[] messagesAll = new String[fileOrder.size()];
 		for (int i = 0; i < fileOrder.size(); i++) {
 			messagesAll[i] = file.getProperty((String) fileOrder.get(i));

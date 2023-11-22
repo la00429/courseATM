@@ -22,7 +22,7 @@ public class SystemPrincipal implements Contracts.IModel {
 	}
 
 	public void addCourse(String infoCourse) {
-		String[] info = infoCourse.split("|");
+		String[] info = infoCourse.split("_");
 		Course course = new Course(info[0], info[1]);
 		courses.add(course);
 	}
@@ -53,9 +53,17 @@ public class SystemPrincipal implements Contracts.IModel {
 		}
 		return courseSelect;
 	}
-
+	
+	public ArrayList<Course> getCourses() {
+		return courses;
+	}
+	
 	public HashMap<String, User> getUsers() {
 		return users;
+	}
+
+	public void setUsers(HashMap<String, User> users) {
+		this.users = users;
 	}
 
 }

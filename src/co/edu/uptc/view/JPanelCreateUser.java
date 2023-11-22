@@ -37,8 +37,9 @@ public class JPanelCreateUser extends JPanelStart {
 	 */
 	public JPanelCreateUser(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
-		this.setVisible(false);
+
 		initComponents2(listener, listenerMouse);
+		this.setVisible(false);
 	}
 
 	private void initComponents2(ActionListener listener, MouseAdapter listenerMouse) {
@@ -142,11 +143,11 @@ public class JPanelCreateUser extends JPanelStart {
 		getInfoPanel().add(getInfoPanel().getButton(), gbc);
 	}
 
-	public void loadComboBoxGender(ArrayList<Object> items) {
+	public void loadComboBoxGender(ArrayList<String> items) {
 		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();
-		model.addElement("Select level");
-		for (Object object : items) {
-			model.addElement(object.toString());
+		model.addElement("Elige uno");
+		for (String item : items) {
+			model.addElement(item);
 
 		}
 		this.genderInput.setModel(model);
@@ -155,13 +156,13 @@ public class JPanelCreateUser extends JPanelStart {
 	public String getName() {
 		return nameInput.getText();
 	}
-	
+
 	public String getCode() {
 		return codeInput.getText();
 	}
-	
+
 	public String getSelectedGender() {
-	    return (String) genderInput.getSelectedItem();
+		return (String) genderInput.getSelectedItem();
 	}
 
 	public String getPasswordInput() {

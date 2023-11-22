@@ -23,12 +23,11 @@ import co.edu.uptc.model.User;
 
 public class LoadData {
 
-	public ArrayList<String> readLibraryCollec() {
+	public ArrayList<String> readTxt(String path) {
 		ArrayList<String> fileAll = new ArrayList<String>();
-		File file = new File("data/sites.txt");
+		File file = new File(path);
 		String line;
-		try (FileReader fileReader = new FileReader(file);
-				BufferedReader process = new BufferedReader(fileReader)) {
+		try (FileReader fileReader = new FileReader(file); BufferedReader process = new BufferedReader(fileReader)) {
 
 			while ((line = process.readLine()) != null) {
 				if (!line.isEmpty()) {
@@ -48,6 +47,7 @@ public class LoadData {
 	}
 
 	public void writeUsersJSON(HashMap<String, User> users) {
+		verificationEmptyJSON(users);
 		try {
 			createResources();
 			JsonObjectBuilder objectConstructor = Json.createObjectBuilder();
@@ -69,6 +69,26 @@ public class LoadData {
 			JsonWriter jsonWriter = Json.createWriter(output);
 			jsonWriter.writeObject(rutJsonObject);
 			jsonWriter.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void verificationEmptyJSON(HashMap<String, User> users) {
+		try {
+			if (users.isEmpty()) {
+				JsonObjectBuilder objectConstructor = Json.createObjectBuilder();
+				JsonArrayBuilder usersList = Json.createArrayBuilder();
+				objectConstructor.add("users", usersList);
+				JsonObject rutJsonObject = objectConstructor.build();
+				OutputStream output = new FileOutputStream("data/users.json");
+				JsonWriter jsonWriter = Json.createWriter(output);
+				jsonWriter.writeObject(rutJsonObject);
+				jsonWriter.close();
+			} else {
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

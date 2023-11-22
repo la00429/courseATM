@@ -17,6 +17,9 @@ public class View implements Contracts.IView {
 	@Override
 	public void showData() {
 		// TODO Auto-generated method stub
+	}
 
+	public JFrameSystem getFrameApp() {
+		return frameApp;
 	}
 }

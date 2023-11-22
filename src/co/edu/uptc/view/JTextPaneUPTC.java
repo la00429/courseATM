@@ -7,39 +7,45 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Insets;
 import java.awt.RenderingHints;
-import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
-
 import javax.swing.JTextPane;
-import javax.swing.border.AbstractBorder;
-import javax.swing.border.EmptyBorder;
 
 public class JTextPaneUPTC extends JTextPane {
-	private int arcWidth = 20; // Radio para esquinas redondeadas
-    private Color backgroundColor = Color.LIGHT_GRAY; // Color de fondo
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Color colorBack;
 
-    public JTextPaneUPTC() {
-        super();
-        setOpaque(false); // Establecer la opacidad en falso para que el fondo sea transparente
-        setEditable(false);
-        setContentType("text/html");
-        setPreferredSize(new Dimension(930, 380));
-    }
+	public JTextPaneUPTC() {
+		super();
+		setOpaque(false); // Establecer la opacidad en falso para que el fondo sea transparente
+		setEditable(false);
+		setContentType("text/html");
+		setPreferredSize(new Dimension(930, 380));
+	}
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g.create();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+	@Override
+	protected void paintComponent(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g.create();
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Dibuja un rectángulo con esquinas redondeadas
-        g2d.setColor(backgroundColor);
-        g2d.fill(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, arcWidth, arcWidth));
+		// Dibuja un rectángulo con esquinas redondeadas
+		g2d.setColor(getColorBack());
+		g2d.fill(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, 16, 16));
 
-        // Llama al método paintComponent de la clase padre para dibujar el contenido
-        super.paintComponent(g2d);
+		// Llama al método paintComponent de la clase padre para dibujar el contenido
+		super.paintComponent(g2d);
 
-        g2d.dispose();
-    }
+		g2d.dispose();
+	}
+
+	public void setColorBack(Color colorBack) {
+		this.colorBack = colorBack;
+	}
+
+	public Color getColorBack() {
+		return colorBack;
+	}
 }

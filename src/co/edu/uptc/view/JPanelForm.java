@@ -1,6 +1,6 @@
 package co.edu.uptc.view;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -10,21 +10,20 @@ import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTextPane;
 
 public class JPanelForm extends JPanelStart {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextPane paneDataStyles;
+	private JTextPaneUPTC paneDataStyles;
 	private JComboBoxUPTC styles;
 
 	public JPanelForm(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
 
 		initComponents2(listener, listenerMouse);
-		this.setVisible(true);
+		this.setVisible(false);
 	}
 
 	private void initComponents2(ActionListener listener, MouseAdapter listenerMouse) {
@@ -85,6 +84,7 @@ public class JPanelForm extends JPanelStart {
 				+ "<p style='font-family:Arial; font-size:20px;'> <b>Divergente:</b> Es el estilo de aprendizaje que se basa en la experiencia concreta y la observación reflexiva. Las personas con este estilo son creativas, imaginativas, emocionales y sensibles. Les gusta explorar, generar ideas, trabajar en grupo y expresarse.</p>"
 				+ "<p style='font-family:Arial; font-size:20px;'> <b>Convergente:</b> Es el estilo de aprendizaje que se basa en la conceptualización abstracta y la experimentación activa. Las personas con este estilo son prácticas, eficientes, objetivas y orientadas a los resultados. Les gusta aplicar lo que saben, tomar decisiones, resolver problemas y encontrar soluciones.</p></html>";
 		this.paneDataStyles.setText(paragraph);
+		this.paneDataStyles.setColorBack(Color.LIGHT_GRAY);
 
 	}
 
@@ -102,17 +102,17 @@ public class JPanelForm extends JPanelStart {
 		getInfoPanel().getButton().setActionCommand("Record");
 		getInfoPanel().getButton().addActionListener(listener);
 		gbc.gridx = 1;
-	    gbc.gridwidth = GridBagConstraints.REMAINDER; // Resto del ancho disponible
-	    gbc.insets = new Insets(0, 5, 47, 140); // Ajusta los márgenes según lo necesites
-	    getInfoPanel().add(getInfoPanel().getButton(), gbc);
-		
+		gbc.gridwidth = GridBagConstraints.REMAINDER; // Resto del ancho disponible
+		gbc.insets = new Insets(0, 5, 47, 140); // Ajusta los márgenes según lo necesites
+		getInfoPanel().add(getInfoPanel().getButton(), gbc);
+
 	}
 
-	public void loadComboBoxStyles(ArrayList<Object> items) {
+	public void loadComboBoxStyles(ArrayList<String> items) {
 		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();
 		model.addElement("Elige uno");
-		for (Object object : items) {
-			model.addElement(object.toString());
+		for (String item : items) {
+			model.addElement(item);
 
 		}
 		this.styles.setModel(model);

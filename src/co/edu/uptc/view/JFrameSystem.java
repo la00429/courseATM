@@ -1,15 +1,20 @@
 package co.edu.uptc.view;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 
 import com.sun.org.apache.bcel.internal.generic.ACONST_NULL;
+
+import co.edu.uptc.config.Message;
 
 public class JFrameSystem extends JFrame {
 	/**
@@ -21,31 +26,68 @@ public class JFrameSystem extends JFrame {
 	private JPanelForm formStyleLearning;
 	private JChangePasswaord changePassword;
 	private JPanelCourse course;
+	private JDialogUPTC showInfo;
 
 	public JFrameSystem(ActionListener listener, MouseAdapter listenerMouse) {
-		this.setTitle("Aprendamos Juntos");
+		super("Aprendamos Juntos");
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
 				Toolkit.getDefaultToolkit().getScreenSize().height - 18);
 		this.setBackground(new Color(255, 255, 255));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		startLogin(listener, listenerMouse);
+		initComponents(listener, listenerMouse);
 		this.setVisible(true);
 	}
 
-	private void startLogin(ActionListener listener, MouseAdapter listenerMouse) {
-//		createUser = new JPanelCreateUser(listener, listenerMouse);
-//		createUser.setVisible(true);
-//		this.add(createUser);
-//		loginUser = new JPanelLogin(listener, listenerMouse);
-//		loginUser.setVisible(true);
-//		this.add(loginUser);
-//		formStyleLearning = new JPanelForm(listener, listenerMouse);
-//		this.add(formStyleLearning);
-//		changePassword = new JChangePasswaord(listener, listenerMouse);
-//		this.add(changePassword);
+	private void initComponents(ActionListener listener, MouseAdapter listenerMouse) {
+		createUser = new JPanelCreateUser(listener, listenerMouse);
+		formStyleLearning = new JPanelForm(listener, listenerMouse);
+		changePassword = new JChangePasswaord(listener, listenerMouse);
 		course = new JPanelCourse(listener, listenerMouse);
-		course.setVisible(true);
+		loginUser = new JPanelLogin(listener, listenerMouse);
+		this.add(loginUser);
+	}
+
+	public void showMessageInfo(String message) {
+		this.showInfo = new JDialogUPTC(this);
+		this.showInfo.getTextPane().setText(message);
+		this.showInfo.setVisible(true);
+	}
+
+	public void stateLoginUser(boolean state) {
+		this.add(loginUser);
+		this.loginUser.setVisible(state);
+	}
+
+	public void stateCreateUser(boolean state) {
+		this.add(createUser);
+		this.createUser.setVisible(state);
+	}
+
+	public void stateFormStyleLearning(boolean state) {
+		this.add(formStyleLearning);
+		this.formStyleLearning.setVisible(state);
+	}
+
+	public void stateChangePassword(boolean state) {
+		this.add(changePassword);
+		this.changePassword.setVisible(state);
+	}
+
+	public void stateCourse(boolean state) {
 		this.add(course);
+		this.course.setVisible(state);
+	}
+
+	public void loadComboGender(ArrayList<String> items) {
+		this.createUser.loadComboBoxGender(items);
+	}
+
+	public void loadComboStyles(ArrayList<String> items) {
+		this.formStyleLearning.loadComboBoxStyles(items);
+	}
+
+	public String selectCourse() {
+		return this.formStyleLearning.getSelectStyle();
 	}
 
 }
