@@ -23,14 +23,13 @@ public class JTextPaneUPTC extends JTextPane {
 		setOpaque(false); // Establecer la opacidad en falso para que el fondo sea transparente
 		setEditable(false);
 		setContentType("text/html");
-		setPreferredSize(new Dimension(930, 380));
+		setSize(new Dimension(930, 380));
 	}
 
 	@Override
 	protected void paintComponent(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g.create();
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
 		// Dibuja un rectángulo con esquinas redondeadas
 		g2d.setColor(getColorBack());
 		g2d.fill(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, 16, 16));

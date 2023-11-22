@@ -80,7 +80,13 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 				view.getFrameApp().repaint();
 				view.getFrameApp().stateCourse(true);
 			}else {
-				view.getFrameApp().showMessageInfo(Message.HELP);
+				if (view.getFrameApp().getLoginUser().getUserInput().isEmpty() ||
+					view.getFrameApp().getLoginUser().getPasswordInput().isEmpty()) {
+					view.getFrameApp().showMessageInfo(Message.ERROR_NULL);
+				}else {
+					view.getFrameApp().showMessageInfo(Message.ERROR_NO_FOUND);
+				}
+				
 			}
 		}
 

@@ -2,6 +2,7 @@ package co.edu.uptc.view;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -32,6 +33,7 @@ public class JFrameSystem extends JFrame {
 		super("Aprendamos Juntos");
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
 				Toolkit.getDefaultToolkit().getScreenSize().height - 18);
+//		this.setPreferredSize(new Dimension(2300,2300));
 		this.setBackground(new Color(255, 255, 255));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		initComponents(listener, listenerMouse);

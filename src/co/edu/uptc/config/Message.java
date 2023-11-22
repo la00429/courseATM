@@ -11,5 +11,7 @@ public class Message {
 	public static String PATH_STYLES;
 	public static String PATH_GENDER;
 	public static String MESSAGE_COURSE;
+	public static String ERROR_NO_FOUND;
+	public static String ERROR_NULL;
 
 }
