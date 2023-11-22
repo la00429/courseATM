@@ -15,6 +15,10 @@ import java.awt.*;
 
 public class WebCourse extends JFXPanel{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private WebView webView;
 	private Button zoomInButton;
 	private Button zoomOutButton;

@@ -19,20 +19,23 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 	private LoadData loadData;
 
 	public Presenter() {
-		this.view = new View(this, this);
-		this.sPrincipal = new SystemPrincipal();
 		this.loadData = new LoadData();
+		this.sPrincipal = new SystemPrincipal();
+		this.view = new View(this, this);
 	}
 
 	public void loadData() {
 		loadProperties();
 		loadJSON();
 		loadSystem();
+
 	}
 
 	private void loadProperties() {
 		Config config = new Config();
 		config.loadMessages();
+		this.view.getFrameApp().revalidate();
+		this.view.getFrameApp().repaint();
 	}
 
 	private void loadJSON() {
@@ -71,7 +74,13 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 				view.getFrameApp().stateLoginUser(false);
 				view.getFrameApp().setCourse(sPrincipal.selectCourse(sPrincipal.getUsers()
 						.get(view.getFrameApp().getLoginUser().getUserInput()).getStyleLearning()));
+				view.getFrameApp().getCourse().setNameUser(
+						sPrincipal.getUsers().get(view.getFrameApp().getLoginUser().getUserInput()).getName());
+				view.getFrameApp().revalidate();
+				view.getFrameApp().repaint();
 				view.getFrameApp().stateCourse(true);
+			}else {
+				view.getFrameApp().showMessageInfo(Message.HELP);
 			}
 		}
 
@@ -95,12 +104,15 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 			// confirma si eligió un estilo de aprendizaje.
 			// guardar toda la información del usuario y persistirla
 			if (true) {
-
 				view.getFrameApp().stateFormStyleLearning(false);
 				view.getFrameApp().setCourse(sPrincipal.selectCourse(view.getFrameApp().selectCourse()));
 				view.getFrameApp().setNameUser(view.getFrameApp().getCreateUser().getName());
 				view.getFrameApp().stateCourse(true);
-				sPrincipal.addUser(view.getFrameApp().getCreateUser().getCode(), view.getFrameApp().getCreateUser().getName(), view.getFrameApp().getCreateUser().getSelectedGender(), view.getFrameApp().getCreateUser().getPasswordInput(), view.getFrameApp().getFormStyleLearning().getSelectStyle());
+				sPrincipal.addUser(view.getFrameApp().getCreateUser().getCode(),
+						view.getFrameApp().getCreateUser().getName(),
+						view.getFrameApp().getCreateUser().getSelectedGender(),
+						view.getFrameApp().getCreateUser().getPasswordInput(),
+						view.getFrameApp().getFormStyleLearning().getSelectStyle());
 				loadData.writeUsersJSON(sPrincipal.getUsers());
 			}
 

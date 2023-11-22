@@ -10,5 +10,6 @@ public class Message {
 	public static String PATH_SITES;
 	public static String PATH_STYLES;
 	public static String PATH_GENDER;
+	public static String MESSAGE_COURSE;
 
 }

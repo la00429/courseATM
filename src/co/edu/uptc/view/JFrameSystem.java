@@ -91,8 +91,7 @@ public class JFrameSystem extends JFrame {
 	}
 
 	public void setNameUser(String name) {
-		this.course.setNameUser(name);
-		;
+		this.course.setNameUser(name);	
 	}
 
 	public void setCourse(String path) {
@@ -118,5 +117,4 @@ public class JFrameSystem extends JFrame {
 	public JPanelCourse getCourse() {
 		return course;
 	}
-
 }

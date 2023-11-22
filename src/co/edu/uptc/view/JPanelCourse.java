@@ -35,8 +35,8 @@ public class JPanelCourse extends JPanelStart {
 		GridBagConstraints gbc = new GridBagConstraints();
 		getDimensionPanelLeft(listener, gbc);
 		firstLine(gbc, listener);
-//		secondLine(gbc);
-//		thirdLine(gbc);
+		secondLine(gbc);
+		thirdLine(gbc);
 		fourLine(gbc);
 	}
 
@@ -48,7 +48,7 @@ public class JPanelCourse extends JPanelStart {
 
 	private void panelRight(GridBagConstraints gbc) {
 		gbc.gridx = 1;
-		gbc.weightx = 1; // Peso para la columna
+		gbc.weightx = 1;
 		add(getInfoPanel(), gbc);
 	}
 
@@ -75,22 +75,24 @@ public class JPanelCourse extends JPanelStart {
 		this.optionsMenu.setPreferredSize(new Dimension(getWidth(), 94));
 		this.optionsMenu.setLayout(new GridBagLayout());
 		this.optionsMenu.setBackground(new Color(248, 203, 46));
-		logout = new JButtonTraspUPTC("");
-		logout.setIcon(modiImage());
-		logout.setActionCommand("Logout");
-		logout.addActionListener(listener);
-		gbc.insets = new Insets(16, 0, 10, 80);
-
-		gbc.anchor = GridBagConstraints.LAST_LINE_END; // Esquina inferior izquierda
-
-		gbc.fill = GridBagConstraints.NONE; // Sin relleno
-		this.optionsMenu.add(logout, gbc);
+		addButton(gbc,listener);
 		gbc.anchor = GridBagConstraints.NORTH;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.insets = new Insets(0, 0, 0, 0);
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		getInfoPanel().add(this.optionsMenu, gbc);
 
+	}
+
+	private void addButton(GridBagConstraints gbc,ActionListener listener) {
+		this.logout = new JButtonTraspUPTC("");
+		this.logout.setIcon(modiImage());
+		this.logout.setActionCommand("Logout");
+		this.logout.addActionListener(listener);
+		gbc.insets = new Insets(16, 0, 10, 80);
+		gbc.anchor = GridBagConstraints.LAST_LINE_END;
+		gbc.fill = GridBagConstraints.NONE;
+		this.optionsMenu.add(logout, gbc);
 	}
 
 	private ImageIcon modiImage() {
@@ -101,19 +103,12 @@ public class JPanelCourse extends JPanelStart {
 	}
 
 	private void secondLine(GridBagConstraints gbc) {
-		
-		getInfoPanel().getTitle().setText("Hola " + this.name.getText());
-		getInfoPanel().getTitle().setFont(new Font("Arial", Font.BOLD, 64));
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.gridwidth = GridBagConstraints.REMAINDER;
-		gbc.anchor = GridBagConstraints.CENTER;
-		gbc.insets = new Insets(36, 250, 0, 126);
-		getInfoPanel().add(getInfoPanel().getTitle(), gbc);
+		this.name = new JLabel();
 	}
 
 	private void thirdLine(GridBagConstraints gbc) {
 		this.subTitle = new JTextPaneUPTC();
+		this.subTitle.setColorBack(Color.white);
 		configurationPanelStyles();
 		addTextPane();
 		gbc.gridx = 0;
@@ -122,18 +117,7 @@ public class JPanelCourse extends JPanelStart {
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.insets = new Insets(0, 133, 0, 133);
 		getInfoPanel().add(subTitle, gbc);
-
 	}
-
-	private void fourLine(GridBagConstraints gbc) {
-		this.panelCourse = new JPanel();
-		this.webCourse = new WebCourse();
-		
-		this.panelCourse.add(webCourse);
-		gbc.gridy = 4;
-		getInfoPanel().add(panelCourse, gbc);;
-	}
-
 	private void configurationPanelStyles() {
 		this.panelCourse = new JPanel();
 		this.panelCourse.setLayout(new BorderLayout());
@@ -141,15 +125,35 @@ public class JPanelCourse extends JPanelStart {
 	}
 
 	private void addTextPane() {
-		String paragraph = "<html><p style='font-family:Arial; font-size:20px;'> Este es el curso de acuerdo al estilo de aprendizaje que más se acomoda a ti. Gracias por estar aquí. </p></html>";
+		String paragraph = "<html><p style='font-family:Arial; font-size:24px;'> Este es el curso de acuerdo al estilo de aprendizaje que más se acomoda a ti. Gracias por estar aquí. </p></html>";
 		this.subTitle.setText(paragraph);
 
 	}
 
+	private void fourLine(GridBagConstraints gbc) {
+		this.panelCourse = new JPanel();
+		this.webCourse = new WebCourse();
+		this.panelCourse.add(webCourse);
+		gbc.gridy = 4;
+		getInfoPanel().add(panelCourse, gbc);
+		;
+	}
+
+	
+
 	public void setNameUser(String text) {
-		// TODO Auto-generated method stub
+		GridBagConstraints gbc = new GridBagConstraints();
 		this.name = new JLabel();
 		this.name.setText(text);
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		gbc.insets = new Insets(36, 250, 0, 126);
+		getInfoPanel().getTitle().setText("Hola " + this.name.getText());
+		getInfoPanel().getTitle().setFont(new Font("Arial", Font.BOLD, 64));
+		getInfoPanel().add(getInfoPanel().getTitle(), gbc);
 	}
 
 	public void setPathCourse(String pathCouse) {
