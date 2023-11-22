@@ -104,7 +104,7 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 	 *
 	 * @param e the e
 	 */
-	@Override
+	
 	public void actionPerformed(ActionEvent e) {
 		String source = e.getActionCommand();
 		if (source.equals("Login")) {
@@ -339,6 +339,7 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 	 * @param codeUser the code user
 	 */
 	private void loginAcess(String codeUser) {
+		view.getFrameApp().stateLoginUser(false);
 		selectCourse(codeUser);
 		showName(codeUser);
 		view.accessCourseCreate();

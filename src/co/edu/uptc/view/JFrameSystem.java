@@ -13,8 +13,6 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import com.sun.org.apache.bcel.internal.generic.ACONST_NULL;
-
 import co.edu.uptc.config.Message;
 
 // TODO: Auto-generated Javadoc
@@ -23,25 +21,25 @@ import co.edu.uptc.config.Message;
  * contiene diferentes paneles para mostrar la interfaz de usuario.
  */
 public class JFrameSystem extends JFrame {
-	
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** The login user. */
 	private JPanelLogin loginUser; // Panel para el inicio de sesión
-	
+
 	/** The create user. */
 	private JPanelCreateUser createUser; // Panel para la creación de usuarios
-	
+
 	/** The form style learning. */
 	private JPanelForm formStyleLearning; // Panel para la selección de estilo de aprendizaje
-	
+
 	/** The change password. */
 	private JChangePasswaord changePassword; // Panel para cambiar contraseña
-	
+
 	/** The course. */
 	private JPanelCourse course; // Panel para los cursos
-	
+
 	/** The show info. */
 	private JDialogUPTC showInfo; // Diálogo para mostrar información adicional
 
