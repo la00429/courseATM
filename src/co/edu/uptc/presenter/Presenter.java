@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import co.edu.uptc.config.Config;
 import co.edu.uptc.config.Message;
 import co.edu.uptc.model.SystemPrincipal;
+import co.edu.uptc.model.User;
 import co.edu.uptc.persistence.LoadData;
 import co.edu.uptc.view.View;
 
@@ -65,8 +66,10 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 		if (source.equals("Login")) {
 			// Si el usuario se encuentra en el sistema y los credenciales son los
 			// correctos.
-			if (true) {
+			if (sPrincipal.searchUser(view.getFrameApp().getLoginUser().getUserInput(),
+					view.getFrameApp().getLoginUser().getPasswordInput()) == true) {
 				view.getFrameApp().stateLoginUser(false);
+				view.getFrameApp().setCourse(sPrincipal.selectCourse(sPrincipal.getUsers().get(view.getFrameApp().getLoginUser().getUserInput()).getStyleLearning()));
 				view.getFrameApp().stateCourse(true);
 			}
 		}
@@ -93,7 +96,10 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 			if (true) {
 
 				view.getFrameApp().stateFormStyleLearning(false);
-				view.getFrameApp().stateFormStyleLearning(true);
+				// ingreso el curso
+				view.getFrameApp().setCourse(sPrincipal.selectCourse(view.getFrameApp().selectCourse()));
+
+				view.getFrameApp().stateCourse(true);
 				loadData.writeUsersJSON(sPrincipal.getUsers());
 			}
 

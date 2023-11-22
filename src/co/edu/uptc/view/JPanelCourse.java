@@ -3,29 +3,16 @@ package co.edu.uptc.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
-import java.awt.RenderingHints;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
-import java.awt.geom.Ellipse2D;
-import java.util.ArrayList;
-
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextPane;
-import javax.swing.SwingUtilities;
 
 public class JPanelCourse extends JPanelStart {
 	private static final long serialVersionUID = 1L;
@@ -34,7 +21,8 @@ public class JPanelCourse extends JPanelStart {
 	private JLabel name;
 	private JTextPaneUPTC subTitle;
 	private JPanel panelCourse;
-	private WebPageDisplay webCourse;
+	private WebCourse webCourse;
+	private String pathCouse;
 
 	public JPanelCourse(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
@@ -47,8 +35,8 @@ public class JPanelCourse extends JPanelStart {
 		GridBagConstraints gbc = new GridBagConstraints();
 		getDimensionPanelLeft(listener, gbc);
 		firstLine(gbc, listener);
-		secondLine(gbc);
-		thirdLine(gbc);
+//		secondLine(gbc);
+//		thirdLine(gbc);
 		fourLine(gbc);
 	}
 
@@ -139,8 +127,11 @@ public class JPanelCourse extends JPanelStart {
 
 	private void fourLine(GridBagConstraints gbc) {
 		this.panelCourse = new JPanel();
+		this.webCourse = new WebCourse();
+		
+		this.panelCourse.add(webCourse);
 		gbc.gridy = 4;
-		getInfoPanel().add(panelCourse, gbc);
+		getInfoPanel().add(panelCourse, gbc);;
 	}
 
 	private void configurationPanelStyles() {
@@ -159,4 +150,13 @@ public class JPanelCourse extends JPanelStart {
 		// TODO Auto-generated method stub
 		this.name.setText(text);
 	}
+
+	public String getPathCouse() {
+		return pathCouse;
+	}
+
+	public void setPathCourse(String pathCouse) {
+		this.webCourse.loadPage(pathCouse);
+	}
+
 }

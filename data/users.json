@@ -1,4 +1,11 @@
 {
 	"users": [
+		{
+			"code": "1",
+			"name": "Laura Vanessa Figueredo Martínez",
+			"gender": "Mujer",
+			"password": "a",
+			"styleLearning": "Adaptador"
+		}
 	]
 }

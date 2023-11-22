@@ -90,4 +90,30 @@ public class JFrameSystem extends JFrame {
 		return this.formStyleLearning.getSelectStyle();
 	}
 
+	public void setCourse(String path) {
+		this.course.setPathCourse(path);
+	}
+
+	public JPanelLogin getLoginUser() {
+		return loginUser;
+	}
+
+	public JPanelCreateUser getCreateUser() {
+		return createUser;
+	}
+
+	public JPanelForm getFormStyleLearning() {
+		return formStyleLearning;
+	}
+
+	public JChangePasswaord getChangePassword() {
+		return changePassword;
+	}
+
+	public JPanelCourse getCourse() {
+		return course;
+	}
+	
+	
+
 }
