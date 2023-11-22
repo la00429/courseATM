@@ -69,7 +69,8 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 			if (sPrincipal.searchUser(view.getFrameApp().getLoginUser().getUserInput(),
 					view.getFrameApp().getLoginUser().getPasswordInput()) == true) {
 				view.getFrameApp().stateLoginUser(false);
-				view.getFrameApp().setCourse(sPrincipal.selectCourse(sPrincipal.getUsers().get(view.getFrameApp().getLoginUser().getUserInput()).getStyleLearning()));
+				view.getFrameApp().setCourse(sPrincipal.selectCourse(sPrincipal.getUsers()
+						.get(view.getFrameApp().getLoginUser().getUserInput()).getStyleLearning()));
 				view.getFrameApp().stateCourse(true);
 			}
 		}
@@ -96,10 +97,10 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 			if (true) {
 
 				view.getFrameApp().stateFormStyleLearning(false);
-				// ingreso el curso
 				view.getFrameApp().setCourse(sPrincipal.selectCourse(view.getFrameApp().selectCourse()));
-
+				view.getFrameApp().setNameUser(view.getFrameApp().getCreateUser().getName());
 				view.getFrameApp().stateCourse(true);
+				sPrincipal.addUser(view.getFrameApp().getCreateUser().getCode(), view.getFrameApp().getCreateUser().getName(), view.getFrameApp().getCreateUser().getSelectedGender(), view.getFrameApp().getCreateUser().getPasswordInput(), view.getFrameApp().getFormStyleLearning().getSelectStyle());
 				loadData.writeUsersJSON(sPrincipal.getUsers());
 			}
 

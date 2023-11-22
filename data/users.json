@@ -1,11 +1,18 @@
 {
 	"users": [
 		{
-			"code": "1",
-			"name": "Laura Vanessa Figueredo Martínez",
-			"gender": "Mujer",
+			"code": "12",
+			"name": "a",
+			"gender": "Hombre",
 			"password": "a",
 			"styleLearning": "Adaptador"
+		},
+		{
+			"code": "202114933",
+			"name": "Laura Vanessa Figueredo MartÃ­nez",
+			"gender": "Mujer",
+			"password": "Laura2004.",
+			"styleLearning": "Asimilador"
 		}
 	]
 }

@@ -90,6 +90,11 @@ public class JFrameSystem extends JFrame {
 		return this.formStyleLearning.getSelectStyle();
 	}
 
+	public void setNameUser(String name) {
+		this.course.setNameUser(name);
+		;
+	}
+
 	public void setCourse(String path) {
 		this.course.setPathCourse(path);
 	}
@@ -113,7 +118,5 @@ public class JFrameSystem extends JFrame {
 	public JPanelCourse getCourse() {
 		return course;
 	}
-	
-	
 
 }

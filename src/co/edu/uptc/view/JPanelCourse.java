@@ -101,7 +101,7 @@ public class JPanelCourse extends JPanelStart {
 	}
 
 	private void secondLine(GridBagConstraints gbc) {
-		this.name = new JLabel();
+		
 		getInfoPanel().getTitle().setText("Hola " + this.name.getText());
 		getInfoPanel().getTitle().setFont(new Font("Arial", Font.BOLD, 64));
 		gbc.gridx = 0;
@@ -148,11 +148,8 @@ public class JPanelCourse extends JPanelStart {
 
 	public void setNameUser(String text) {
 		// TODO Auto-generated method stub
+		this.name = new JLabel();
 		this.name.setText(text);
-	}
-
-	public String getPathCouse() {
-		return pathCouse;
 	}
 
 	public void setPathCourse(String pathCouse) {
