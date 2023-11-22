@@ -118,6 +118,10 @@ public class JPanelForm extends JPanelStart {
 		this.styles.setModel(model);
 	}
 
+	public void cleanPanel() {
+		this.styles.setSelectedItem("Elige uno");
+	}
+
 	public String getSelectStyle() {
 		return (String) styles.getSelectedItem();
 

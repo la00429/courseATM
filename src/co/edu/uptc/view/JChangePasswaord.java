@@ -87,6 +87,11 @@ public class JChangePasswaord extends JPanelStart {
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
 		getInfoPanel().add(getInfoPanel().getButton(), gbc);
 	}
+	
+	public void cleanPanel() {
+		this.codeInput.setText("");
+		this.passwordInput.setText("");
+	}
 
 	public String getUserInput() {
 		return codeInput.getText();

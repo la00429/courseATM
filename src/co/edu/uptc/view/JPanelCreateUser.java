@@ -152,6 +152,12 @@ public class JPanelCreateUser extends JPanelStart {
 		}
 		this.genderInput.setModel(model);
 	}
+	public void cleanPanel() {
+		this.nameInput.setText("");
+		this.codeInput.setText("");
+		this.genderInput.setSelectedItem("Elige uno");
+		this.passwordInput.setText("");
+	}
 
 	public String getName() {
 		return nameInput.getText();

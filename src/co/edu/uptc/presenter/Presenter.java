@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import co.edu.uptc.config.Config;
 import co.edu.uptc.config.Message;
@@ -65,83 +66,37 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		view.getFrameApp().revalidate();
+		view.getFrameApp().repaint();
 		String source = e.getActionCommand();
 		if (source.equals("Login")) {
-			// Si el usuario se encuentra en el sistema y los credenciales son los
-			// correctos.
-			if (sPrincipal.searchUser(view.getFrameApp().getLoginUser().getUserInput(),
-					view.getFrameApp().getLoginUser().getPasswordInput()) == true) {
-				view.getFrameApp().stateLoginUser(false);
-				view.getFrameApp().setCourse(sPrincipal.selectCourse(sPrincipal.getUsers()
-						.get(view.getFrameApp().getLoginUser().getUserInput()).getStyleLearning()));
-				view.getFrameApp().getCourse().setNameUser(
-						sPrincipal.getUsers().get(view.getFrameApp().getLoginUser().getUserInput()).getName());
-				view.getFrameApp().revalidate();
-				view.getFrameApp().repaint();
-				view.getFrameApp().stateCourse(true);
-			}else {
-				if (view.getFrameApp().getLoginUser().getUserInput().isEmpty() ||
-					view.getFrameApp().getLoginUser().getPasswordInput().isEmpty()) {
-					view.getFrameApp().showMessageInfo(Message.ERROR_NULL);
-				}else {
-					view.getFrameApp().showMessageInfo(Message.ERROR_NO_FOUND);
-				}
-				
-			}
+			verificationLogin();
 		}
 
 		if (source.equals("Forgot")) {
-			if (true) {
-				view.getFrameApp().stateLoginUser(false);
-				view.getFrameApp().stateChangePassword(true);
-			}
+			forgotPassword();
 		}
 
 		if (source.equals("Next")) {
-			// si el código es diferente a los de los almacenados dentro del hastable de los
-			// usuarios y ningún campo está vacio.
-			if (true) {
-				view.getFrameApp().stateCreateUser(false);
-				view.getFrameApp().stateFormStyleLearning(true);
-			}
+			createUserData();
 		}
 
 		if (source.equals("Record")) {
-			// confirma si eligió un estilo de aprendizaje.
-			// guardar toda la información del usuario y persistirla
-			if (true) {
-				view.getFrameApp().stateFormStyleLearning(false);
-				view.getFrameApp().setCourse(sPrincipal.selectCourse(view.getFrameApp().selectCourse()));
-				view.getFrameApp().setNameUser(view.getFrameApp().getCreateUser().getName());
-				view.getFrameApp().stateCourse(true);
-				sPrincipal.addUser(view.getFrameApp().getCreateUser().getCode(),
-						view.getFrameApp().getCreateUser().getName(),
-						view.getFrameApp().getCreateUser().getSelectedGender(),
-						view.getFrameApp().getCreateUser().getPasswordInput(),
-						view.getFrameApp().getFormStyleLearning().getSelectStyle());
-				loadData.writeUsersJSON(sPrincipal.getUsers());
-			}
-
+			getDataCourse();
+			getDataUser();
+			cleanDataPanel();
 		}
 
 		if (source.equals("Accept")) {
-			// diferente a la que ya estaba y no es nullo el campo,
-			if (true) {
-				view.getFrameApp().stateChangePassword(false);
-				view.getFrameApp().stateLoginUser(true);
-			}
-
+			updatePanelChangePasswaord();
 		}
 
 		if (source.equals("Create")) {
-			view.getFrameApp().stateLoginUser(false);
-			view.getFrameApp().stateCreateUser(true);
+			changeToCreateUser();
 		}
 
 		if (source.equals("Logout")) {
-			view.getFrameApp().stateCourse(false);
-			view.getFrameApp().stateLoginUser(true);
-
+			logOutSystem();
 		}
 
 		if (source.equals("Help")) {
@@ -152,13 +107,145 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 		if (source.equals("Us")) {
 			view.getFrameApp().showMessageInfo(Message.ABOUT_US);
 		}
+	}
+
+	private void logOutSystem() {
+		view.getFrameApp().stateCourse(false);
+		view.getFrameApp().stateLoginUser(true);
+	}
+
+	private void changeToCreateUser() {
+		view.getFrameApp().stateLoginUser(false);
+		view.getFrameApp().stateCreateUser(true);
+	}
+
+	private void updatePanelChangePasswaord() {
+		String codeUser = view.getFrameApp().getChangePassword().getUserInput();
+		String passwordUserNew = view.getFrameApp().getChangePassword().getPasswordInput();
+		if (!codeUser.isEmpty() && !passwordUserNew.isEmpty()) {
+			verificationUser(codeUser);
+		} else {
+			view.getFrameApp().showMessageInfo(Message.ERROR_NULL);
+		}
+	}
+
+	private void verificationUser(String codeUser) {
+		if (sPrincipal.getUsers().containsKey(codeUser)) {
+			updateStatePasword(codeUser);
+		} else {
+			view.getFrameApp().showMessageInfo(Message.ERROR_NO_FOUND);
+		}
+	}
+
+	private void updateStatePasword(String codeUser) {
+		changeDataUser(codeUser);
+		view.getFrameApp().stateChangePassword(false);
+		view.getFrameApp().stateLoginUser(true);
+		view.getFrameApp().getChangePassword().cleanPanel();
+	}
+
+	private void changeDataUser(String codeUser) {
+		sPrincipal.getUsers().get(codeUser).setPassword(view.getFrameApp().getChangePassword().getPasswordInput());
+		loadData.writeUsersJSON(sPrincipal.getUsers());
+	}
+
+	private void getDataCourse() {
+		String courseSelect = view.getFrameApp().selectCourse();
+		String nameUser = view.getFrameApp().getCreateUser().getName();
+		loadCourse(courseSelect, nameUser);
+	}
+
+	private void loadCourse(String courseSelect, String nameUser) {
+		view.getFrameApp().stateFormStyleLearning(false);
+		view.getFrameApp().setCourse(sPrincipal.selectCourse(courseSelect));
+		view.getFrameApp().setNameUser(nameUser);
+		view.getFrameApp().stateCourse(true);
+	}
+
+	private void getDataUser() {
+		String name = view.getFrameApp().getCreateUser().getName();
+		String code = view.getFrameApp().getCreateUser().getCode();
+		String gender = view.getFrameApp().getCreateUser().getSelectedGender();
+		String password = view.getFrameApp().getCreateUser().getPasswordInput();
+		String styleLearning = view.getFrameApp().getFormStyleLearning().getSelectStyle();
+		loadDataUser(name, code, gender, password, styleLearning);
+	}
+
+	private void loadDataUser(String name, String code, String gender, String password, String styleLearning) {
+		sPrincipal.addUser(code, name, gender, password, styleLearning);
+		loadData.writeUsersJSON(sPrincipal.getUsers());
+	}
+
+	private void cleanDataPanel() {
+		view.getFrameApp().getCreateUser().cleanPanel();
+		view.getFrameApp().getFormStyleLearning().cleanPanel();
+	}
+
+	private void createUserData() {
+		String name = view.getFrameApp().getCreateUser().getName();
+		String code = view.getFrameApp().getCreateUser().getCode();
+		String gender = view.getFrameApp().getCreateUser().getSelectedGender();
+		String password = view.getFrameApp().getCreateUser().getPasswordInput();
+		createUserMessage(name, code, gender, password);
+	}
+
+	private void createUserMessage(String name, String code, String gender, String password) {
+		if (name.isEmpty() || code.isEmpty() || gender.isEmpty() || password.isEmpty()) {
+			view.getFrameApp().showMessageInfo(Message.ERROR_NULL);
+		} else {
+			if (sPrincipal.getUsers().containsKey(code)) {
+				view.getFrameApp().showMessageInfo(Message.ERROR_TWIN);
+			} else {
+				createUserNext();
+			}
+		}
+	}
+
+	private void createUserNext() {
+		view.getFrameApp().stateCreateUser(false);
+		view.getFrameApp().stateFormStyleLearning(true);
+	}
+
+	private void forgotPassword() {
+		view.getFrameApp().stateLoginUser(false);
+		view.getFrameApp().stateChangePassword(true);
+	}
+
+	public void verificationLogin() {
+		String codeUser = view.getFrameApp().getLoginUser().getUserInput();
+		String passwordUser = view.getFrameApp().getLoginUser().getPasswordInput();
+		boolean searchUsers = sPrincipal.verificationUser(codeUser, passwordUser);
+		if (searchUsers == true) {
+			loginAcess(codeUser);
+		} else {
+			loginMessage(codeUser, passwordUser);
+		}
+	}
+
+	private void loginAcess(String codeUser) {
+		view.getFrameApp().stateLoginUser(false);
+		selectCourse(codeUser);
+		showData(codeUser);
+		view.getFrameApp().stateCourse(true);
+		view.getFrameApp().getLoginUser().cleanPanel();
+	}
+
+	private void loginMessage(String codeUser, String passwordUser) {
+		if (codeUser.isEmpty() || passwordUser.isEmpty()) {
+			view.getFrameApp().showMessageInfo(Message.ERROR_NULL);
+		} else {
+			view.getFrameApp().showMessageInfo(Message.ERROR_NO_FOUND);
+		}
+	}
+
+	public void selectCourse(String codeUser) {
+		view.getFrameApp().setCourse(sPrincipal.selectCourse(sPrincipal.getUsers().get(codeUser).getStyleLearning()));
 
 	}
 
 	@Override
-	public void showData() {
-		// TODO Auto-generated method stub
-
+	public void showData(String codeUser) {
+		view.getFrameApp().getCourse().setNameUser(sPrincipal.getUsers().get(codeUser).getName());
 	}
 
 }

@@ -32,7 +32,7 @@ public class SystemPrincipal implements Contracts.IModel {
 		users.put(code, user);
 	}
 
-	public Boolean searchUser(String code, String password) {
+	public Boolean verificationUser(String code, String password) {
 		Boolean verification = false;
 		for (String codeUser : users.keySet()) {
 			if (codeUser.equals(code)) {
@@ -53,11 +53,11 @@ public class SystemPrincipal implements Contracts.IModel {
 		}
 		return courseSelect;
 	}
-	
+
 	public ArrayList<Course> getCourses() {
 		return courses;
 	}
-	
+
 	public HashMap<String, User> getUsers() {
 		return users;
 	}

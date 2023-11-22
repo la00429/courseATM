@@ -58,7 +58,7 @@ public class WebCourse extends JFXPanel{
 		this.setScene(scene);
 	}
 
-	private static void changeZoom(WebView webView, double zoomIncrement) {
+	private void changeZoom(WebView webView, double zoomIncrement) {
 		double currentZoom = webView.getZoom();
 		double newZoom = currentZoom + zoomIncrement;
 		if (newZoom >= 0.1 && newZoom <= 3.0) {

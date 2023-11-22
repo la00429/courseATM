@@ -109,6 +109,11 @@ public class JPanelLogin extends JPanelStart {
 		getInfoPanel().add(createCount, gbc);
 	}
 
+	public void cleanPanel() {
+//		this.userInput.setText("");
+//		this.passwordInput.setText("");
+	}
+
 	public String getUserInput() {
 		return userInput.getText();
 	}

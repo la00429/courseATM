@@ -31,12 +31,12 @@ public class JFrameSystem extends JFrame {
 
 	public JFrameSystem(ActionListener listener, MouseAdapter listenerMouse) {
 		super("Aprendamos Juntos");
-		this.setSize(Toolkit.getDefaultToolkit().getScreenSize().width,
-				Toolkit.getDefaultToolkit().getScreenSize().height - 18);
-//		this.setPreferredSize(new Dimension(2300,2300));
+		this.setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width,
+				Toolkit.getDefaultToolkit().getScreenSize().height));
 		this.setBackground(new Color(255, 255, 255));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		initComponents(listener, listenerMouse);
+		pack();
 		this.setVisible(true);
 	}
 
@@ -93,7 +93,7 @@ public class JFrameSystem extends JFrame {
 	}
 
 	public void setNameUser(String name) {
-		this.course.setNameUser(name);	
+		this.course.setNameUser(name);
 	}
 
 	public void setCourse(String path) {
