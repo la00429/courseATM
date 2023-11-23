@@ -367,7 +367,7 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 	 * @param codeUser the code user
 	 */
 	private void selectCourse(String codeUser) {
-		view.setCourse(sPrincipal.selectCourse(sPrincipal.showUser(codeUser).getStyleLearning()));
+		view.getFrameApp().getCourse().getWebCourse().loadPage(sPrincipal.selectCourse(sPrincipal.showUser(codeUser).getStyleLearning()));
 	}
 
 	/**

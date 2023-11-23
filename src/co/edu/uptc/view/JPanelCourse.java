@@ -16,40 +16,40 @@ import javax.swing.JPanel;
 
 // TODO: Auto-generated Javadoc
 /**
- * Clase que representa el panel de visualización de cursos en la interfaz de usuario.
- * Extiende JPanelStart e incluye componentes para mostrar información del curso y el contenido del mismo.
+ * Clase que representa el panel de visualización de cursos en la interfaz de
+ * usuario. Extiende JPanelStart e incluye componentes para mostrar información
+ * del curso y el contenido del mismo.
  */
 public class JPanelCourse extends JPanelStart {
-	
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-    
-    /** The options menu. */
-    private JPanel optionsMenu; // Panel para mostrar el menú de opciones
-    
-    /** The logout. */
-    private JButtonTraspUPTC logout; // Botón para cerrar sesión
-    
-    /** The name. */
-    private JLabel name; // Etiqueta para mostrar el nombre del usuario
-    
-    /** The sub title. */
-    private JTextPaneUPTC subTitle; // Panel de texto para mostrar información adicional
-    
-    /** The panel course. */
-    private JPanel panelCourse; // Panel principal del curso
-    
-    /** The web course. */
-    private WebCourse webCourse; // Componente para visualizar el contenido web del curso
 
+	/** The options menu. */
+	private JPanel optionsMenu; // Panel para mostrar el menú de opciones
 
-    /**
-     * Constructor de la clase JPanelCourse.
-     * Inicializa los componentes necesarios para la visualización del panel de curso.
-     *
-     * @param listener      ActionListener para manejar eventos de botones.
-     * @param listenerMouse MouseAdapter para manejar eventos del ratón.
-     */
+	/** The logout. */
+	private JButtonTraspUPTC logout; // Botón para cerrar sesión
+
+	/** The name. */
+	private JLabel name; // Etiqueta para mostrar el nombre del usuario
+
+	/** The sub title. */
+	private JTextPaneUPTC subTitle; // Panel de texto para mostrar información adicional
+
+	/** The panel course. */
+	private JPanel panelCourse; // Panel principal del curso
+
+	/** The web course. */
+	private WebCourse webCourse; // Componente para visualizar el contenido web del curso
+
+	/**
+	 * Constructor de la clase JPanelCourse. Inicializa los componentes necesarios
+	 * para la visualización del panel de curso.
+	 *
+	 * @param listener      ActionListener para manejar eventos de botones.
+	 * @param listenerMouse MouseAdapter para manejar eventos del ratón.
+	 */
 	public JPanelCourse(ActionListener listener, MouseAdapter listenerMouse) {
 		super(listener, listenerMouse);
 		initComponents2(listener, listenerMouse);
@@ -58,8 +58,9 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Inicializa los combonentes con disposición de GridBagConstraints gbc.
-	 * @param listener Escuchador de eventos.
-	 * @param listenerMouse	Escuchador de mouse.
+	 * 
+	 * @param listener      Escuchador de eventos.
+	 * @param listenerMouse Escuchador de mouse.
 	 */
 	private void initComponents2(ActionListener listener, MouseAdapter listenerMouse) {
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -74,7 +75,7 @@ public class JPanelCourse extends JPanelStart {
 	 * Redimensipna el panel de la derecha.
 	 *
 	 * @param listener Escuchador de eventos.
-	 * @param gbc Objecto para disposiciónes.
+	 * @param gbc      Objecto para disposiciónes.
 	 * @return the dimension panel left
 	 */
 	private void getDimensionPanelLeft(ActionListener listener, GridBagConstraints gbc) {
@@ -85,6 +86,7 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Redimensiona el panel derecho.
+	 * 
 	 * @param gbc Objeto para disposiciones.
 	 */
 	private void panelRight(GridBagConstraints gbc) {
@@ -96,6 +98,7 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Redimensiona el panel izquierdo.
+	 * 
 	 * @param gbc Objeto para disposicione.
 	 */
 	private void panelLeft(GridBagConstraints gbc) {
@@ -111,7 +114,8 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Añade los nuevos componentes al panel de la derecha.
-	 * @param listener	Eschucador de eventos.
+	 * 
+	 * @param listener Eschucador de eventos.
 	 */
 	private void addNewComponents(ActionListener listener) {
 		getImgUser().firstLineUser(96, 88);
@@ -122,8 +126,9 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Ubica los elementos de la primera línea del panel de la derecha.
-	 * @param gbc	Objeto para disposiciones.
-	 * @param listener	Escuchador de eventos.
+	 * 
+	 * @param gbc      Objeto para disposiciones.
+	 * @param listener Escuchador de eventos.
 	 */
 	private void firstLine(GridBagConstraints gbc, ActionListener listener) {
 		this.optionsMenu = new JPanel();
@@ -141,8 +146,9 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Añade el boton de salir al panel de opciones.
-	 * @param gbc	Objeto para disposiciones.
-	 * @param listener	Escuchador de eventos.
+	 * 
+	 * @param gbc      Objeto para disposiciones.
+	 * @param listener Escuchador de eventos.
 	 */
 	private void addButton(GridBagConstraints gbc, ActionListener listener) {
 		this.logout = new JButtonTraspUPTC("");
@@ -157,6 +163,7 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Modifica una imagen, le da nuevas dimensiones.
+	 * 
 	 * @return La imagen modificada.
 	 */
 	private ImageIcon modiImage() {
@@ -168,7 +175,8 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Solo declara la etiqueta donde se mostrará el nombre de usuario.
-	 * @param gbc	Objeto para disposiciones.
+	 * 
+	 * @param gbc Objeto para disposiciones.
 	 */
 	private void secondLine(GridBagConstraints gbc) {
 		this.name = new JLabel();
@@ -194,7 +202,7 @@ public class JPanelCourse extends JPanelStart {
 	}
 
 	/**
-	 * Añade el texto en formato html que va ir en el subtitulo del panel. 
+	 * Añade el texto en formato html que va ir en el subtitulo del panel.
 	 */
 	private void addTextPane() {
 		String paragraph = "<html><p style='font-family:Arial; font-size:24px;'> Este es el curso de acuerdo al estilo de aprendizaje que más se acomoda a ti. Gracias por estar aquí. </p></html>";
@@ -202,8 +210,10 @@ public class JPanelCourse extends JPanelStart {
 	}
 
 	/**
-	 * Agrega los componentes que van en las últimas posiciones. Es decir, la ventana del curso.
-	 @param gbc	Objeto para disposiciones.
+	 * Agrega los componentes que van en las últimas posiciones. Es decir, la
+	 * ventana del curso.
+	 * 
+	 * @param gbc Objeto para disposiciones.
 	 */
 	private void fourLine(GridBagConstraints gbc) {
 		this.panelCourse = new JPanel();
@@ -219,7 +229,8 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Asigna el nombre de usuario a la etiqueta name.
-	 * @param text	Nombre de usuario.
+	 * 
+	 * @param text Nombre de usuario.
 	 */
 	public void setNameUser(String text) {
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -239,10 +250,15 @@ public class JPanelCourse extends JPanelStart {
 
 	/**
 	 * Carga la ruta de la web a la ventana webCourse.
-	 * @param pathCouse	La ruta de la web del curso.
+	 * 
+	 * @param pathCouse La ruta de la web del curso.
 	 */
 	public void setPathCourse(String pathCouse) {
 		this.webCourse.loadPage(pathCouse);
+	}
+
+	public WebCourse getWebCourse() {
+		return webCourse;
 	}
 
 }

@@ -81,7 +81,6 @@ public class WebCourse extends JFXPanel{
 	 * @param path La ruta o URL de la nueva página a cargar en el WebView.
 	 */
 	public void loadPage(String path) {
-		this.isCursorSet();
 		Platform.runLater(() -> initializeWebView(path));
 
 	}

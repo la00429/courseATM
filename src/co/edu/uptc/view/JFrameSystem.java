@@ -185,8 +185,9 @@ public class JFrameSystem extends JFrame {
 	 * @param path Ruta del la web.
 	 */
 	public void setCourse(String path) {
+
 		this.course.setPathCourse(path);
-		this.course.repaint();
+
 	}
 
 	/**
