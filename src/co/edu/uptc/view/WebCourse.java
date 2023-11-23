@@ -38,8 +38,10 @@ public class WebCourse extends JFXPanel{
 	 *
 	 * @param path La ruta o URL del contenido web a cargar en el WebView.
 	 */
+	
 	private void initializeWebView(String path) {
 		webView = new WebView();
+		webView.getEngine().load(path);
 		zoomInButton = new Button("Zoom In");
 		zoomOutButton = new Button("Zoom Out");
 		zoomInButton.setOnAction(e -> changeZoom(webView, 0.1));
@@ -79,6 +81,8 @@ public class WebCourse extends JFXPanel{
 	 * @param path La ruta o URL de la nueva página a cargar en el WebView.
 	 */
 	public void loadPage(String path) {
+		this.isCursorSet();
 		Platform.runLater(() -> initializeWebView(path));
+
 	}
 }

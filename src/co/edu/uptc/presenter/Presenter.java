@@ -340,10 +340,11 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 	 */
 	private void loginAcess(String codeUser) {
 		view.getFrameApp().stateLoginUser(false);
-		selectCourse(codeUser);
 		showName(codeUser);
+		selectCourse(codeUser);
+		
 		view.accessCourseCreate();
-		view.getFrameApp().getLoginUser().cleanPanel();
+//		view.getFrameApp().getLoginUser().cleanPanel();
 	}
 
 	/**
@@ -367,7 +368,7 @@ public class Presenter extends MouseAdapter implements ActionListener, Contracts
 	 */
 	private void selectCourse(String codeUser) {
 		view.setCourse(sPrincipal.selectCourse(sPrincipal.showUser(codeUser).getStyleLearning()));
-
+		System.out.println(sPrincipal.selectCourse(sPrincipal.showUser(codeUser).getStyleLearning()));
 	}
 
 	/**
